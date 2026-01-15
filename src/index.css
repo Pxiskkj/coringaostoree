@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Corinthians Store Design System */
+/* Corinthians Store Design System - Red Theme */
 
 @layer base {
   :root {
@@ -15,7 +15,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
 
-    --primary: 0 0% 0%;
+    --primary: 0 72% 51%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 96%;
@@ -32,7 +32,7 @@
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 0 0% 0%;
+    --ring: 0 72% 51%;
 
     --radius: 0.5rem;
 
@@ -43,8 +43,8 @@
     --success: 142 76% 36%;
     --success-light: 142 76% 95%;
     --warning: 45 93% 47%;
-    --info: 199 89% 48%;
-    --info-light: 199 89% 95%;
+    --info: 0 72% 51%;
+    --info-light: 0 72% 95%;
     
     /* Rating colors */
     --rating-star: 45 100% 50%;
@@ -66,8 +66,8 @@
     --popover: 0 0% 8%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 5%;
+    --primary: 0 72% 51%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 15%;
     --secondary-foreground: 0 0% 98%;
@@ -83,7 +83,7 @@
 
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 0 0% 83%;
+    --ring: 0 72% 51%;
   }
 }
 
@@ -105,12 +105,12 @@
 
   .btn-outline-success {
     @apply border-2 font-semibold py-2 px-6 rounded-full transition-all duration-200;
-    border-color: hsl(var(--info));
-    color: hsl(var(--info));
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
   }
   
   .btn-outline-success:hover {
-    background-color: hsl(var(--info) / 0.1);
+    background-color: hsl(var(--primary) / 0.1);
   }
 
   .price-original {
@@ -155,12 +155,12 @@
   .frete-banner {
     @apply rounded-xl p-4;
     background-color: hsl(var(--info-light));
-    color: hsl(var(--info));
+    color: hsl(var(--primary));
   }
 
   .section-title {
     @apply text-lg font-bold uppercase tracking-wide;
-    color: hsl(var(--info));
+    color: hsl(var(--primary));
   }
 }
 
