@@ -8,11 +8,13 @@ import CopoBanner from "@/components/CopoBanner";
 import { ShoppingCart, Truck, Shield, Star } from "lucide-react";
 
 // Import images
-import camisa1 from "@/assets/camisa-corinthians-1.png";
-import camisa2 from "@/assets/camisa-corinthians-2.png";
-import camisa3 from "@/assets/camisa-corinthians-3.png";
+import camisa1 from "@/assets/camisa-corinthians-1.jpg";
+import camisa2 from "@/assets/camisa-corinthians-2.jpg";
+import camisa3 from "@/assets/camisa-corinthians-3.jpg";
+import camisa4 from "@/assets/camisa-corinthians-4.jpg";
+import camisa5 from "@/assets/camisa-corinthians-5.jpg";
 
-const productImages = [camisa1, camisa2, camisa3];
+const productImages = [camisa1, camisa2, camisa3, camisa4, camisa5];
 const sizes = ["P", "M", "G", "GG", "XGG"];
 
 const Index = () => {
