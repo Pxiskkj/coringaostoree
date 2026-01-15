@@ -1,39 +1,80 @@
-import { Check } from "lucide-react";
+import { Check, Package, Shirt, Shield, Award } from "lucide-react";
 
 const ProductDescription = () => {
   const features = [
-    "Tecido de alta qualidade com tecnologia Dri-FIT",
-    "Escudo do Corinthians bordado com acabamento premium",
-    "Listras tradicionais preto e branco",
-    "Gola confortável com ajuste perfeito",
-    "Material leve e respirável ideal para jogos e dia a dia",
-    "Disponível para personalização com nome e número",
+    "Tecido 100% poliéster com tecnologia Nike Dri-FIT de alta performance",
+    "Escudo do Sport Club Corinthians Paulista bordado com precisão",
+    "Patrocínios oficiais estampados conforme versão de jogo",
+    "Gola careca com acabamento premium e etiqueta interna tecida",
+    "Corte masculino regular com ajuste confortável",
+    "Material leve, respirável e de secagem rápida",
+    "Produto 100% original com certificado de autenticidade Nike",
+    "Ideal para jogos, treinos e uso casual no dia a dia",
+  ];
+
+  const specifications = [
+    { icon: Shirt, label: "Composição", value: "100% Poliéster reciclado" },
+    { icon: Package, label: "Modelo", value: "Torcedor Pro Masculina" },
+    { icon: Shield, label: "Garantia", value: "90 dias contra defeitos" },
+    { icon: Award, label: "Temporada", value: "2025/2026" },
   ];
 
   return (
     <section className="py-4">
-      <h2 className="section-title mb-3">DESCRIÇÃO DO PRODUTO</h2>
+      <h2 className="section-title mb-4">DESCRIÇÃO DO PRODUTO</h2>
       
-      <div className="space-y-4">
-        <p className="text-foreground leading-relaxed">
-          Vista a paixão pelo Timão com a <strong>Camisa Corinthians I 25/26</strong>, 
-          o manto sagrado do clube mais amado do Brasil. Produzida com materiais de 
-          primeira linha, esta camisa combina tradição e conforto para você torcer com estilo.
-        </p>
-        
-        <p className="text-foreground leading-relaxed">
-          O design clássico preto e branco representa toda a história e glória do 
-          Sport Club Corinthians Paulista, desde 1910 fazendo história no futebol brasileiro.
-          Ideal para usar nos jogos, no dia a dia ou colecionar.
-        </p>
+      <div className="space-y-5">
+        {/* Main description */}
+        <div className="bg-muted/30 rounded-lg p-4">
+          <p className="text-foreground leading-relaxed mb-3">
+            A <strong>Camisa Oficial Nike Corinthians 2025/26</strong> é o manto sagrado 
+            para os verdadeiros apaixonados pelo Timão. Desenvolvida com a mais alta 
+            tecnologia Nike, esta camisa oferece conforto, durabilidade e o orgulho de 
+            vestir as cores do clube mais amado do Brasil.
+          </p>
+          
+          <p className="text-foreground leading-relaxed">
+            Com design exclusivo que celebra a tradição alvinegra, a camisa traz todos 
+            os detalhes oficiais da temporada, incluindo os patrocínios e o escudo 
+            bordado do Sport Club Corinthians Paulista. Perfeita para torcer na arquibancada, 
+            jogar com os amigos ou usar no dia a dia.
+          </p>
+        </div>
 
-        <div className="space-y-2 pt-2">
-          {features.map((feature, index) => (
-            <div key={index} className="flex items-start gap-2">
-              <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-              <span className="text-foreground">{feature}</span>
+        {/* Specifications */}
+        <div className="grid grid-cols-2 gap-3">
+          {specifications.map((spec, index) => (
+            <div key={index} className="flex items-center gap-2 bg-muted/20 rounded-lg p-3">
+              <spec.icon className="w-5 h-5 text-primary flex-shrink-0" />
+              <div>
+                <p className="text-xs text-muted-foreground">{spec.label}</p>
+                <p className="text-sm font-medium text-foreground">{spec.value}</p>
+              </div>
             </div>
           ))}
+        </div>
+
+        {/* Features list */}
+        <div>
+          <h3 className="text-sm font-semibold text-foreground mb-3">Características:</h3>
+          <div className="space-y-2">
+            {features.map((feature, index) => (
+              <div key={index} className="flex items-start gap-2">
+                <Check className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
+                <span className="text-sm text-foreground">{feature}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Care instructions */}
+        <div className="border-t border-border pt-4">
+          <h3 className="text-sm font-semibold text-foreground mb-2">Instruções de Lavagem:</h3>
+          <p className="text-sm text-muted-foreground">
+            Lavar à máquina com água fria (máx. 30°C). Não usar alvejante. 
+            Secar à sombra. Não passar ferro sobre as estampas. 
+            Não lavar a seco.
+          </p>
         </div>
       </div>
     </section>
