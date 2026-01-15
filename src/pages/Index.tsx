@@ -6,6 +6,8 @@ import ProductDescription from "@/components/ProductDescription";
 import ReviewsSection from "@/components/ReviewsSection";
 import CartModal from "@/components/CartModal";
 import CopoBanner from "@/components/CopoBanner";
+import ShippingCalculator from "@/components/ShippingCalculator";
+import Newsletter from "@/components/Newsletter";
 import { ShoppingCart, Truck, Shield, Star, Menu } from "lucide-react";
 
 // Import camisa branca
@@ -195,11 +197,17 @@ const Index = () => {
           {/* Copo Banner */}
           <CopoBanner />
 
+          {/* Shipping Calculator */}
+          <ShippingCalculator />
+
           {/* Product Description */}
           <ProductDescription />
 
           {/* Reviews Section */}
           <ReviewsSection />
+
+          {/* Newsletter */}
+          <Newsletter />
         </div>
       </main>
 
