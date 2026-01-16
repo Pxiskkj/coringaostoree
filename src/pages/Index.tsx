@@ -8,6 +8,7 @@ import CartModal from "@/components/CartModal";
 import CopoBanner from "@/components/CopoBanner";
 import ShippingCalculator from "@/components/ShippingCalculator";
 import Newsletter from "@/components/Newsletter";
+import Footer from "@/components/Footer";
 import { ShoppingCart, Truck, Shield, Star, Menu } from "lucide-react";
 
 // Import camisa branca
@@ -211,8 +212,11 @@ const Index = () => {
         </div>
       </main>
 
+      {/* Footer Links Section */}
+      <Footer />
+
       {/* Footer */}
-      <footer className="bg-primary text-primary-foreground py-6 px-4 mt-8">
+      <footer className="bg-primary text-primary-foreground py-6 px-4">
         <div className="container text-center">
           <h3 className="text-lg font-bold mb-2">CORINGÃO STORE</h3>
           <p className="text-sm opacity-80">
