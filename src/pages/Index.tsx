@@ -129,19 +129,19 @@ const Index = () => {
         <ProductCarousel images={currentProduct.images} key={selectedColor} />
 
         {/* Sales Badge */}
-        <div className="flex items-center justify-center gap-3 mt-4 py-3 px-4 bg-card rounded-xl shadow-sm">
-          <div className="flex items-center gap-1">
-            <Star className="w-5 h-5 fill-rating-star text-rating-star" />
-            <Star className="w-5 h-5 fill-rating-star text-rating-star" />
-            <Star className="w-5 h-5 fill-rating-star text-rating-star" />
-            <Star className="w-5 h-5 fill-rating-star text-rating-star" />
-            <Star className="w-5 h-5 fill-rating-star/50 text-rating-star" />
-            <span className="font-bold text-foreground ml-1">4.8</span>
+        <div className="flex items-center justify-start gap-2 mt-4 py-3 px-5 bg-card rounded-2xl shadow-md border border-border/50">
+          <div className="flex items-center gap-0.5">
+            <Star className="w-4 h-4 fill-rating-star text-rating-star" />
+            <Star className="w-4 h-4 fill-rating-star text-rating-star" />
+            <Star className="w-4 h-4 fill-rating-star text-rating-star" />
+            <Star className="w-4 h-4 fill-rating-star text-rating-star" />
+            <Star className="w-4 h-4 fill-rating-star/30 text-rating-star" />
           </div>
-          <div className="w-px h-6 bg-border"></div>
-          <div className="flex items-center gap-1">
-            <span className="text-info font-bold">12.847</span>
-            <span className="text-muted-foreground">vendidos</span>
+          <span className="font-bold text-foreground text-lg">4.8</span>
+          <div className="w-px h-5 bg-border/60 mx-1"></div>
+          <div className="flex items-center gap-1.5">
+            <span className="text-info font-bold text-lg">12.847</span>
+            <span className="text-muted-foreground font-medium">vendidos</span>
           </div>
         </div>
 
