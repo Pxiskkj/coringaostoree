@@ -77,7 +77,7 @@ const ProductCarousel = ({ images }: ProductCarouselProps) => {
     <div className="relative w-full">
       {/* Main carousel */}
       <div 
-        className="carousel-container rounded-lg bg-secondary relative"
+        className="relative rounded-lg bg-secondary overflow-hidden"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -86,19 +86,20 @@ const ProductCarousel = ({ images }: ProductCarouselProps) => {
         <div className="absolute top-3 left-3 z-10 bg-success text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
           67% OFF
         </div>
+        
         <div 
-          className="product-image-carousel"
+          className="flex transition-transform duration-200 ease-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {images.map((image, index) => (
             <div 
               key={index} 
-              className="min-w-full flex items-center justify-center p-4"
+              className="min-w-full flex items-center justify-center aspect-square"
             >
               <img 
                 src={image} 
                 alt={`Produto ${index + 1}`}
-                className="w-full max-w-[280px] h-auto object-contain"
+                className="w-full h-full object-cover"
                 loading="eager"
                 decoding="async"
                 fetchPriority={index === 0 ? "high" : "auto"}
@@ -106,64 +107,17 @@ const ProductCarousel = ({ images }: ProductCarouselProps) => {
             </div>
           ))}
         </div>
-
-        {/* Navigation arrows */}
-        {images.length > 1 && (
-          <>
-            <button 
-              onClick={goToPrevious}
-              className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-card/80 flex items-center justify-center shadow-md hover:bg-card transition-colors"
-              aria-label="Imagem anterior"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button 
-              onClick={goToNext}
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-card/80 flex items-center justify-center shadow-md hover:bg-card transition-colors"
-              aria-label="Próxima imagem"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </>
-        )}
       </div>
 
-      {/* Thumbnail navigation - horizontal scroll */}
-      {images.length > 1 && (
-        <div className="relative mt-3">
-          <div className="flex gap-2 overflow-x-auto pb-2 px-1 scrollbar-hide justify-center">
-            {images.map((image, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`flex-shrink-0 w-12 h-12 rounded-lg border-2 transition-all overflow-hidden ${
-                  currentIndex === index 
-                    ? "border-primary ring-2 ring-primary/30" 
-                    : "border-muted opacity-70 hover:opacity-100"
-                }`}
-              >
-                <img 
-                  src={image} 
-                  alt={`Miniatura ${index + 1}`}
-                  className="w-full h-full object-contain bg-secondary"
-                  loading="eager"
-                  decoding="async"
-                />
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Dots indicator - smaller with red active */}
-      <div className="flex justify-center gap-1.5 mt-2">
+      {/* Red dots indicator only */}
+      <div className="flex justify-center gap-2 mt-3">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`transition-all rounded-full ${
+            className={`transition-all duration-200 rounded-full ${
               currentIndex === index 
-                ? "bg-primary w-5 h-2" 
+                ? "bg-primary w-2.5 h-2.5" 
                 : "bg-muted-foreground/30 w-2 h-2"
             }`}
             aria-label={`Ir para imagem ${index + 1}`}
