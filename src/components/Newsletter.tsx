@@ -31,13 +31,13 @@ const Newsletter = () => {
 
   return (
     <section 
-      className="relative py-12 px-4 bg-cover bg-center overflow-hidden min-h-[500px]"
+      className="relative py-12 px-4 bg-cover bg-center overflow-hidden min-h-[500px] w-full"
       style={{ backgroundImage: `url(${newsletterBg})` }}
     >
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/60" />
       
-      <div className="relative z-10 max-w-md mx-auto text-center pt-4">
+      <div className="relative z-10 max-w-md mx-auto text-center pt-4 px-4">
         <h2 className="text-2xl font-extrabold text-white mb-3 tracking-wide">
           NEWSLETTER
         </h2>
