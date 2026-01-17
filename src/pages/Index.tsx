@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductCarousel from "@/components/ProductCarousel";
 import SizeSelector from "@/components/SizeSelector";
 import ColorSelector from "@/components/ColorSelector";
@@ -28,8 +28,18 @@ import camisaPreta5 from "@/assets/camisa-preta-5.jpg";
 import camisaPreta6 from "@/assets/camisa-preta-6.jpg";
 import camisaPreta7 from "@/assets/camisa-preta-7.jpg";
 
+// Import kit copos for preload
+import kitCoposImg from "@/assets/kit-copos-corinthians.jpeg";
+
 const productImagesBranca = [camisa1, camisa2, camisa3, camisa4, camisa5];
 const productImagesPreta = [camisaPreta1, camisaPreta2, camisaPreta3, camisaPreta4, camisaPreta5, camisaPreta6, camisaPreta7];
+
+// Preload all images immediately
+const preloadImages = [...productImagesBranca, ...productImagesPreta, kitCoposImg];
+preloadImages.forEach(src => {
+  const img = new Image();
+  img.src = src;
+});
 
 const sizes = ["P", "M", "G", "GG", "2GG", "3GG", "4GG"];
 

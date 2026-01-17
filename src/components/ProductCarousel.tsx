@@ -8,12 +8,30 @@ interface ProductCarouselProps {
 const ProductCarousel = ({ images }: ProductCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([]);
+
+  // Preload all images on mount
+  useEffect(() => {
+    const loaded = new Array(images.length).fill(false);
+    images.forEach((src, idx) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        loaded[idx] = true;
+        setImagesLoaded([...loaded]);
+      };
+      if (img.complete) {
+        loaded[idx] = true;
+      }
+    });
+    setImagesLoaded(loaded);
+  }, [images]);
 
   const goToSlide = useCallback((index: number) => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setCurrentIndex(index);
-    setTimeout(() => setIsTransitioning(false), 300);
+    setTimeout(() => setIsTransitioning(false), 200);
   }, [isTransitioning]);
 
   const goToPrevious = useCallback(() => {
@@ -81,7 +99,9 @@ const ProductCarousel = ({ images }: ProductCarouselProps) => {
                 src={image} 
                 alt={`Produto ${index + 1}`}
                 className="w-full max-w-[280px] h-auto object-contain"
-                loading={index === 0 ? "eager" : "lazy"}
+                loading="eager"
+                decoding="async"
+                fetchPriority={index === 0 ? "high" : "auto"}
               />
             </div>
           ))}
@@ -126,7 +146,8 @@ const ProductCarousel = ({ images }: ProductCarouselProps) => {
                   src={image} 
                   alt={`Miniatura ${index + 1}`}
                   className="w-full h-full object-contain bg-secondary"
-                  loading="lazy"
+                  loading="eager"
+                  decoding="async"
                 />
               </button>
             ))}
