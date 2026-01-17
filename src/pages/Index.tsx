@@ -157,7 +157,7 @@ const Index = () => {
             <span className="price-original">R$ 299,99</span>
             <div className="flex items-baseline gap-2">
               <span className="price-current">R$ 127,42</span>
-              <span className="text-success text-sm font-medium">57% OFF</span>
+              <span className="text-success text-sm font-medium">67% OFF</span>
             </div>
             <p className="text-muted-foreground text-sm mt-1">
               Em até 12x de R$ 10,62 sem juros
