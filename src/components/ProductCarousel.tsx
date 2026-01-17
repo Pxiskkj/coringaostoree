@@ -108,40 +108,42 @@ const ProductCarousel = ({ images }: ProductCarouselProps) => {
         )}
       </div>
 
-      {/* Thumbnail navigation */}
+      {/* Thumbnail navigation - horizontal scroll */}
       {images.length > 1 && (
-        <div className="flex justify-center gap-2 mt-4">
-          {images.map((image, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`w-16 h-16 rounded-lg border-2 transition-all overflow-hidden ${
-                currentIndex === index 
-                  ? "border-primary" 
-                  : "border-transparent opacity-60 hover:opacity-100"
-              }`}
-            >
-              <img 
-                src={image} 
-                alt={`Miniatura ${index + 1}`}
-                className="w-full h-full object-contain bg-secondary"
-                loading="lazy"
-              />
-            </button>
-          ))}
+        <div className="relative mt-3">
+          <div className="flex gap-2 overflow-x-auto pb-2 px-1 scrollbar-hide justify-center">
+            {images.map((image, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`flex-shrink-0 w-12 h-12 rounded-lg border-2 transition-all overflow-hidden ${
+                  currentIndex === index 
+                    ? "border-primary ring-2 ring-primary/30" 
+                    : "border-muted opacity-70 hover:opacity-100"
+                }`}
+              >
+                <img 
+                  src={image} 
+                  alt={`Miniatura ${index + 1}`}
+                  className="w-full h-full object-contain bg-secondary"
+                  loading="lazy"
+                />
+              </button>
+            ))}
+          </div>
         </div>
       )}
 
-      {/* Dots indicator */}
-      <div className="flex justify-center gap-2 mt-3">
+      {/* Dots indicator - smaller with red active */}
+      <div className="flex justify-center gap-1.5 mt-2">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-2 h-2 rounded-full transition-all ${
+            className={`transition-all rounded-full ${
               currentIndex === index 
-                ? "bg-primary w-4" 
-                : "bg-muted-foreground/30"
+                ? "bg-primary w-5 h-2" 
+                : "bg-muted-foreground/30 w-2 h-2"
             }`}
             aria-label={`Ir para imagem ${index + 1}`}
           />
