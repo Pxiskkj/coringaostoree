@@ -59,11 +59,15 @@ const ProductCarousel = ({ images }: ProductCarouselProps) => {
     <div className="relative w-full">
       {/* Main carousel */}
       <div 
-        className="carousel-container rounded-lg bg-secondary"
+        className="carousel-container rounded-lg bg-secondary relative"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
       >
+        {/* Discount badge */}
+        <div className="absolute top-3 left-3 z-10 bg-success text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+          67% OFF
+        </div>
         <div 
           className="product-image-carousel"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
