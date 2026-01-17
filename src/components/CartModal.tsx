@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { X, Plus, Check } from "lucide-react";
-import copoCorinthians from "@/assets/copo-corinthians-banner.jpeg";
+import { X, Plus, Minus, Check } from "lucide-react";
+import kitCoposImg from "@/assets/kit-copos-corinthians.jpeg";
 
 interface CartItem {
   id: string;
@@ -34,6 +34,10 @@ const CartModal = ({ isOpen, onClose, items, onRemoveItem }: CartModalProps) => 
     setKitCopoQuantity(prev => prev + 1);
   };
 
+  const handleRemoveKitCopo = () => {
+    setKitCopoQuantity(prev => Math.max(0, prev - 1));
+  };
+
   const handleCheckout = () => {
     window.open(CHECKOUT_URL, "_blank");
   };
@@ -65,28 +69,56 @@ const CartModal = ({ isOpen, onClose, items, onRemoveItem }: CartModalProps) => 
         {/* Extra product suggestion */}
         <div className="mb-4">
           <p className="text-foreground font-medium mb-3">Você também pode levar:</p>
-          <div className="flex items-center gap-4 p-3 bg-info-light rounded-xl">
+          <div className="flex items-center gap-3 p-3 bg-info-light rounded-xl">
             <div className="w-16 h-16 bg-card rounded-lg overflow-hidden flex items-center justify-center flex-shrink-0">
               <img 
-                src={copoCorinthians} 
-                alt="Kit Copo Corinthians"
+                src={kitCoposImg} 
+                alt="Kit Copo Munich e Copo Dose Corinthians"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="flex-1 min-w-0">
-              <h4 className="font-medium text-foreground text-sm">Kit Copo Corinthians</h4>
-              <p className="text-primary font-bold">R$ {KIT_COPO_PRICE.toFixed(2).replace('.', ',')}</p>
+              <h4 className="font-medium text-foreground text-xs leading-tight">Kit Copo Munich e Copo Dose Corinthians</h4>
+              <p className="text-primary font-bold text-sm">R$ {KIT_COPO_PRICE.toFixed(2).replace('.', ',')}</p>
               {kitCopoQuantity > 0 && (
                 <p className="text-xs text-muted-foreground">Qtd: {kitCopoQuantity}</p>
               )}
             </div>
-            <button 
-              onClick={handleAddKitCopo}
-              className="flex items-center gap-1 px-4 py-2 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors flex-shrink-0"
-            >
-              <Plus className="w-4 h-4" />
-              Adicionar
-            </button>
+            <div className="flex flex-col gap-1 flex-shrink-0">
+              {kitCopoQuantity === 0 ? (
+                <button 
+                  onClick={handleAddKitCopo}
+                  className="flex items-center gap-1 px-3 py-1.5 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:bg-primary/90 transition-colors"
+                >
+                  <Plus className="w-3.5 h-3.5" />
+                  Adicionar
+                </button>
+              ) : (
+                <>
+                  <div className="flex items-center gap-2">
+                    <button 
+                      onClick={handleRemoveKitCopo}
+                      className="w-7 h-7 flex items-center justify-center bg-muted rounded-full hover:bg-muted/80 transition-colors"
+                    >
+                      <Minus className="w-3.5 h-3.5" />
+                    </button>
+                    <span className="text-sm font-bold w-4 text-center">{kitCopoQuantity}</span>
+                    <button 
+                      onClick={handleAddKitCopo}
+                      className="w-7 h-7 flex items-center justify-center bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                  <button 
+                    onClick={() => setKitCopoQuantity(0)}
+                    className="text-primary text-xs font-medium hover:underline text-center"
+                  >
+                    Remover
+                  </button>
+                </>
+              )}
+            </div>
           </div>
         </div>
 

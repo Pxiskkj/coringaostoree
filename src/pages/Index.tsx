@@ -31,7 +31,7 @@ import camisaPreta7 from "@/assets/camisa-preta-7.jpg";
 const productImagesBranca = [camisa1, camisa2, camisa3, camisa4, camisa5];
 const productImagesPreta = [camisaPreta1, camisaPreta2, camisaPreta3, camisaPreta4, camisaPreta5, camisaPreta6, camisaPreta7];
 
-const sizes = ["P", "M", "G", "GG", "XGG"];
+const sizes = ["P", "M", "G", "GG", "2GG", "3GG", "4GG"];
 
 const colorOptions = [
   { id: "branca", name: "Branca", colorClass: "bg-white" },
@@ -176,7 +176,6 @@ const Index = () => {
 
           {/* Size selector */}
           <div className="mb-4">
-            <p className="text-sm font-medium text-foreground mb-2">Tamanho:</p>
             <SizeSelector 
               sizes={sizes}
               selectedSize={selectedSize}
