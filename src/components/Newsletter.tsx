@@ -31,11 +31,11 @@ const Newsletter = () => {
 
   return (
     <section 
-      className="relative py-10 px-4 mt-8 bg-cover bg-center"
+      className="relative py-10 px-4 mt-8 bg-cover bg-center overflow-hidden"
       style={{ backgroundImage: `url(${newsletterBg})` }}
     >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/70" />
+      {/* Dark overlay - no white borders */}
+      <div className="absolute inset-0 bg-black/75" />
       
       <div className="relative z-10 max-w-md mx-auto text-center">
         <h2 className="text-2xl font-extrabold text-white mb-3 tracking-wide">
@@ -60,7 +60,7 @@ const Newsletter = () => {
               onChange={handleChange}
               placeholder="Nome completo"
               required
-              className="w-full px-5 py-3 bg-white/10 border border-white/30 rounded-full text-white placeholder:text-white/60 focus:outline-none focus:border-white transition-colors"
+              className="w-full px-5 py-3 bg-white/10 border border-white/30 rounded-full text-white placeholder:text-white/60 focus:outline-none focus:border-white transition-colors backdrop-blur-sm"
             />
             <input
               type="tel"
@@ -69,7 +69,7 @@ const Newsletter = () => {
               onChange={handleChange}
               placeholder="Telefone"
               required
-              className="w-full px-5 py-3 bg-white/10 border border-white/30 rounded-full text-white placeholder:text-white/60 focus:outline-none focus:border-white transition-colors"
+              className="w-full px-5 py-3 bg-white/10 border border-white/30 rounded-full text-white placeholder:text-white/60 focus:outline-none focus:border-white transition-colors backdrop-blur-sm"
             />
             <input
               type="email"
@@ -78,12 +78,12 @@ const Newsletter = () => {
               onChange={handleChange}
               placeholder="E-mail"
               required
-              className="w-full px-5 py-3 bg-white/10 border border-white/30 rounded-full text-white placeholder:text-white/60 focus:outline-none focus:border-white transition-colors"
+              className="w-full px-5 py-3 bg-white/10 border border-white/30 rounded-full text-white placeholder:text-white/60 focus:outline-none focus:border-white transition-colors backdrop-blur-sm"
             />
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-3 bg-destructive hover:bg-destructive/90 text-white font-bold rounded-full transition-colors disabled:opacity-50"
+              className="w-full py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-full transition-colors disabled:opacity-50"
             >
               {isSubmitting ? "Cadastrando..." : "Cadastrar"}
             </button>

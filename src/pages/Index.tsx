@@ -9,6 +9,7 @@ import CopoBanner from "@/components/CopoBanner";
 import ShippingCalculator from "@/components/ShippingCalculator";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
+import PersonalizationSelector from "@/components/PersonalizationSelector";
 import { ShoppingCart, Truck, Shield, Star, Menu } from "lucide-react";
 
 // Import camisa branca
@@ -127,15 +128,25 @@ const Index = () => {
         {/* Product Image Carousel */}
         <ProductCarousel images={currentProduct.images} key={selectedColor} />
 
+        {/* Sales Badge */}
+        <div className="flex items-center justify-center gap-3 mt-4 py-3 px-4 bg-card rounded-xl shadow-sm">
+          <div className="flex items-center gap-1">
+            <Star className="w-5 h-5 fill-rating-star text-rating-star" />
+            <Star className="w-5 h-5 fill-rating-star text-rating-star" />
+            <Star className="w-5 h-5 fill-rating-star text-rating-star" />
+            <Star className="w-5 h-5 fill-rating-star text-rating-star" />
+            <Star className="w-5 h-5 fill-rating-star/50 text-rating-star" />
+            <span className="font-bold text-foreground ml-1">4.8</span>
+          </div>
+          <div className="w-px h-6 bg-border"></div>
+          <div className="flex items-center gap-1">
+            <span className="text-info font-bold">12.847</span>
+            <span className="text-muted-foreground">vendidos</span>
+          </div>
+        </div>
+
         {/* Product Info */}
         <div className="mt-6">
-          {/* Rating badge */}
-          <div className="flex items-center gap-1 mb-2">
-            <Star className="w-4 h-4 fill-rating-star text-rating-star" />
-            <span className="font-semibold text-foreground">4.9</span>
-            <span className="text-muted-foreground text-sm">(3.287 avaliações)</span>
-          </div>
-
           {/* Product title */}
           <h2 className="text-xl font-bold text-foreground mb-3">
             {currentProduct.name}
@@ -174,6 +185,9 @@ const Index = () => {
               onSelectSize={setSelectedSize}
             />
           </div>
+
+          {/* Personalization Selector */}
+          <PersonalizationSelector />
 
           {/* Benefits */}
           <div className="flex flex-wrap gap-3 mb-4">
@@ -214,19 +228,6 @@ const Index = () => {
 
       {/* Footer Links Section */}
       <Footer />
-
-      {/* Footer */}
-      <footer className="bg-primary text-primary-foreground py-6 px-4">
-        <div className="container text-center">
-          <h3 className="text-lg font-bold mb-2">CORINGÃO STORE</h3>
-          <p className="text-sm opacity-80">
-            Seu manto sagrado está aqui. Vai Corinthians!
-          </p>
-          <p className="text-xs opacity-60 mt-4">
-            © 2026 Coringão Store. Todos os direitos reservados.
-          </p>
-        </div>
-      </footer>
 
       {/* Cart Modal */}
       <CartModal 
