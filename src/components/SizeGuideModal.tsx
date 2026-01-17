@@ -36,102 +36,40 @@ const SizeGuideModal = ({ isOpen, onClose }: SizeGuideModalProps) => {
         </div>
 
         {/* Content */}
-        <div className="p-3">
-          {/* T-shirt illustration with brand */}
-          <div className="flex gap-4 items-start">
-            {/* Left side - T-shirt illustration */}
-            <div className="flex-shrink-0 flex flex-col items-center w-28">
-              <div className="text-info font-bold text-xs mb-1">
-                Coringão<span className="text-foreground">Store</span>
-              </div>
-              {/* Professional T-shirt SVG */}
-              <svg viewBox="0 0 100 120" className="w-24 h-28">
-                {/* T-shirt body */}
-                <path 
-                  d="M50 8 C45 8 42 12 40 16 L35 14 L20 20 L8 38 L18 42 L18 110 L82 110 L82 42 L92 38 L80 20 L65 14 L60 16 C58 12 55 8 50 8 Z"
-                  fill="hsl(var(--muted))"
-                  stroke="hsl(var(--foreground))"
-                  strokeWidth="1.5"
-                />
-                {/* Collar */}
-                <path 
-                  d="M40 16 C43 22 47 25 50 25 C53 25 57 22 60 16"
-                  fill="none"
-                  stroke="hsl(var(--foreground))"
-                  strokeWidth="1.5"
-                />
-                {/* Left sleeve seam */}
-                <path 
-                  d="M18 42 L35 32"
-                  fill="none"
-                  stroke="hsl(var(--foreground))"
-                  strokeWidth="1"
-                  strokeDasharray="2"
-                />
-                {/* Right sleeve seam */}
-                <path 
-                  d="M82 42 L65 32"
-                  fill="none"
-                  stroke="hsl(var(--foreground))"
-                  strokeWidth="1"
-                  strokeDasharray="2"
-                />
-                
-                {/* A - Torax measurement line */}
-                <line x1="20" y1="48" x2="80" y2="48" stroke="hsl(var(--info))" strokeWidth="1.5"/>
-                <circle cx="20" cy="48" r="2" fill="hsl(var(--info))"/>
-                <circle cx="80" cy="48" r="2" fill="hsl(var(--info))"/>
-                <text x="6" y="51" className="text-[8px] font-bold" fill="hsl(var(--info))">A</text>
-                
-                {/* B - Cintura measurement line */}
-                <line x1="19" y1="72" x2="81" y2="72" stroke="hsl(var(--info))" strokeWidth="1.5"/>
-                <circle cx="19" cy="72" r="2" fill="hsl(var(--info))"/>
-                <circle cx="81" cy="72" r="2" fill="hsl(var(--info))"/>
-                <text x="6" y="75" className="text-[8px] font-bold" fill="hsl(var(--info))">B</text>
-                
-                {/* C - Quadril measurement line */}
-                <line x1="18" y1="100" x2="82" y2="100" stroke="hsl(var(--info))" strokeWidth="1.5"/>
-                <circle cx="18" cy="100" r="2" fill="hsl(var(--info))"/>
-                <circle cx="82" cy="100" r="2" fill="hsl(var(--info))"/>
-                <text x="6" y="103" className="text-[8px] font-bold" fill="hsl(var(--info))">C</text>
-              </svg>
-            </div>
-
-            {/* Right side - Size table */}
-            <div className="flex-1 min-w-0">
-              <div className="text-center mb-2">
-                <h3 className="text-sm font-bold text-foreground">TABELA DE MEDIDAS</h3>
-                <span className="inline-block bg-info text-white text-[10px] font-bold px-2 py-0.5 rounded">MASCULINO</span>
-              </div>
-
-              <table className="w-full text-xs">
-                <thead>
-                  <tr className="bg-info text-white">
-                    <th className="py-1 px-1 text-left font-bold text-[10px]">TAM</th>
-                    <th className="py-1 px-1 text-center font-bold text-[10px]">A</th>
-                    <th className="py-1 px-1 text-center font-bold text-[10px]">B</th>
-                    <th className="py-1 px-1 text-center font-bold text-[10px]">C</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {sizeData.map((row, index) => (
-                    <tr key={row.size} className={index % 2 === 0 ? "bg-muted/30" : "bg-background"}>
-                      <td className="py-1 px-1">
-                        <span className="inline-block bg-foreground text-background text-[10px] font-bold px-1.5 py-0.5 rounded">
-                          {row.size}
-                        </span>
-                      </td>
-                      <td className="py-1 px-1 text-center text-muted-foreground text-[10px]">{row.torax}</td>
-                      <td className="py-1 px-1 text-center text-muted-foreground text-[10px]">{row.cintura}</td>
-                      <td className="py-1 px-1 text-center text-muted-foreground text-[10px]">{row.quadril}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-
-              <p className="text-[10px] text-muted-foreground mt-2">*Medidas em centímetros (cm)</p>
-            </div>
+        <div className="p-4">
+          {/* Title */}
+          <div className="text-center mb-4">
+            <h3 className="text-lg font-bold text-foreground">TABELA DE MEDIDAS</h3>
+            <span className="inline-block bg-info text-white text-xs font-bold px-4 py-1 rounded mt-1">MASCULINO</span>
           </div>
+
+          {/* Size table like reference image */}
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-info text-white">
+                <th className="py-2 px-2 text-left font-bold border-r border-info/50">TAMANHO</th>
+                <th className="py-2 px-2 text-center font-bold border-r border-info/50">A. TÓRAX</th>
+                <th className="py-2 px-2 text-center font-bold border-r border-info/50">B. CINTURA</th>
+                <th className="py-2 px-2 text-center font-bold">C. QUADRIL</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sizeData.map((row, index) => (
+                <tr key={row.size} className={`border-b border-border ${index % 2 === 0 ? "bg-muted/20" : "bg-background"}`}>
+                  <td className="py-2 px-2 border-r border-border">
+                    <span className="inline-block bg-foreground text-background text-xs font-bold px-2 py-0.5 rounded">
+                      {row.size}
+                    </span>
+                  </td>
+                  <td className="py-2 px-2 text-center text-muted-foreground border-r border-border">{row.torax}</td>
+                  <td className="py-2 px-2 text-center text-muted-foreground border-r border-border">{row.cintura}</td>
+                  <td className="py-2 px-2 text-center text-muted-foreground">{row.quadril}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          <p className="text-xs text-muted-foreground mt-3">*Medidas em centímetros</p>
         </div>
       </div>
     </div>

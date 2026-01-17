@@ -69,20 +69,47 @@ const Footer = () => {
 
   return (
     <div className="bg-background border-t border-border mt-8">
-      {/* Social Media Icons */}
-      <div className="flex justify-center gap-8 py-6">
-        <a href="#" className="text-primary hover:opacity-80 transition-opacity" aria-label="Instagram">
-          <Instagram className="w-8 h-8" strokeWidth={1.5} />
-        </a>
-        <a href="#" className="text-primary hover:opacity-80 transition-opacity" aria-label="Twitter">
-          <Twitter className="w-8 h-8" strokeWidth={1.5} />
-        </a>
-        <a href="#" className="text-primary hover:opacity-80 transition-opacity" aria-label="YouTube">
-          <Youtube className="w-8 h-8" strokeWidth={1.5} />
-        </a>
-        <a href="#" className="text-primary hover:opacity-80 transition-opacity" aria-label="Facebook">
-          <Facebook className="w-8 h-8" strokeWidth={1.5} />
-        </a>
+      {/* Social Media Section */}
+      <div className="py-4 text-center">
+        <p className="text-primary font-semibold text-sm mb-3">Acompanhe o Corinthians</p>
+        <div className="flex justify-center gap-8">
+          <a 
+            href="https://www.instagram.com/corinthians?igsh=eDkxbG44dHR3ZThn" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-primary hover:opacity-80 transition-opacity" 
+            aria-label="Instagram"
+          >
+            <Instagram className="w-7 h-7" strokeWidth={1.5} />
+          </a>
+          <a 
+            href="https://x.com/corinthians?s=21" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-primary hover:opacity-80 transition-opacity" 
+            aria-label="Twitter"
+          >
+            <Twitter className="w-7 h-7" strokeWidth={1.5} />
+          </a>
+          <a 
+            href="https://youtube.com/@corinthians?si=3W5kUiJZgeCz6LCx" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-primary hover:opacity-80 transition-opacity" 
+            aria-label="YouTube"
+          >
+            <Youtube className="w-7 h-7" strokeWidth={1.5} />
+          </a>
+          <a 
+            href="https://www.facebook.com/share/1C5JppE1tH/?mibextid=wwXIfr" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-primary hover:opacity-80 transition-opacity" 
+            aria-label="Facebook"
+          >
+            <Facebook className="w-7 h-7" strokeWidth={1.5} />
+          </a>
+        </div>
       </div>
 
       {/* Accordion Sections */}
@@ -97,12 +124,12 @@ const Footer = () => {
       ))}
 
       {/* Payment Methods - Using the actual image */}
-      <div className="border-t border-border px-4 py-6">
-        <h4 className="text-primary font-semibold text-lg mb-4">FORMAS DE PAGAMENTOS</h4>
+      <div className="border-t border-border px-4 py-5">
+        <h4 className="text-primary font-semibold text-base mb-3">FORMAS DE PAGAMENTOS</h4>
         <img 
           src={paymentMethods} 
           alt="Formas de pagamento: Visa, Mastercard, Banri Compras, Diners, PIX, American Express"
-          className="w-full max-w-md mx-auto"
+          className="w-full max-w-sm mx-auto"
         />
       </div>
 
@@ -110,14 +137,14 @@ const Footer = () => {
       <div className="h-1 bg-info"></div>
 
       {/* Coringão Store Section */}
-      <div className="bg-background px-4 py-8 text-center">
-        <h3 className="text-2xl font-bold text-muted-foreground mb-1">
+      <div className="bg-background px-4 py-6 text-center">
+        <h3 className="text-lg font-bold text-muted-foreground mb-1">
           ⭐ ⭐ ⭐
         </h3>
-        <h3 className="text-2xl font-bold text-muted-foreground mb-4">
+        <h3 className="text-lg font-bold text-muted-foreground mb-3">
           Coringão Store
         </h3>
-        <p className="text-muted-foreground text-sm leading-relaxed max-w-md mx-auto">
+        <p className="text-muted-foreground text-xs leading-relaxed max-w-md mx-auto">
           Os preços, promoções, condições de pagamento, frete e produtos anunciados na loja virtual são válidos exclusivamente para compras online e estão sujeitos à alteração sem aviso prévio. Estas ofertas são válidas até o término de nossos estoques para internet. As vendas ainda estão sujeitas à análise e confirmação de dados. Caso exista alguma diferença nos preços ofertados, será considerado válido o preço do Carrinho de Compras. As imagens dos produtos são meramente ilustrativas. SPORT CLUB CORINTHIANS PAULISTA. CNPJ: 61.902.722/0001-26 Copyright © 2026 - Todos os direitos reservados Praça Roberto Gomes Pedrosa, 1 - Morumbi, São Paulo - SP
         </p>
       </div>
