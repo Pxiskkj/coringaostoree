@@ -31,11 +31,10 @@ const Newsletter = () => {
 
   return (
     <section 
-      className="relative py-10 px-4 mt-8 bg-cover bg-center overflow-hidden"
+      className="relative py-10 px-4 bg-cover bg-center overflow-hidden"
       style={{ backgroundImage: `url(${newsletterBg})` }}
     >
-      {/* Dark overlay - black to see players better */}
-      <div className="absolute inset-0 bg-black/70" />
+      {/* No overlay needed - image already has dark overlay */}
       
       <div className="relative z-10 max-w-md mx-auto text-center">
         <h2 className="text-2xl font-extrabold text-white mb-3 tracking-wide">
