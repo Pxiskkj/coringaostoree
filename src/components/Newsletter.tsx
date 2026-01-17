@@ -1,5 +1,5 @@
 import { useState } from "react";
-import newsletterBg from "@/assets/newsletter-bg-new.jpeg";
+import newsletterBg from "@/assets/newsletter-bg.jpg";
 
 const Newsletter = () => {
   const [formData, setFormData] = useState({
@@ -34,8 +34,8 @@ const Newsletter = () => {
       className="relative py-10 px-4 mt-8 bg-cover bg-center overflow-hidden"
       style={{ backgroundImage: `url(${newsletterBg})` }}
     >
-      {/* Blue overlay matching the image style */}
-      <div className="absolute inset-0 bg-[#2a4a7a]/60" />
+      {/* Dark overlay - black to see players better */}
+      <div className="absolute inset-0 bg-black/70" />
       
       <div className="relative z-10 max-w-md mx-auto text-center">
         <h2 className="text-2xl font-extrabold text-white mb-3 tracking-wide">
