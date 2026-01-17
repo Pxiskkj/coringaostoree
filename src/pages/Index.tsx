@@ -220,11 +220,11 @@ const Index = () => {
 
           {/* Reviews Section */}
           <ReviewsSection />
-
-          {/* Newsletter */}
-          <Newsletter />
         </div>
       </main>
+
+      {/* Newsletter - Full width outside container */}
+      <Newsletter />
 
       {/* Footer Links Section */}
       <Footer />
