@@ -18,7 +18,8 @@ interface CartModalProps {
   onRemoveItem: (id: string) => void;
 }
 
-const CHECKOUT_URL = "https://checkout.acessoapp.online/VCCL1O8SCNGB";
+const CHECKOUT_URL_SHIRT = "https://checkout.acessoapp.online/VCCL1O8SCNGB";
+const CHECKOUT_URL_COMBO = "https://checkout.acessoapp.online/VCCL1O8SCNST";
 const KIT_COPO_PRICE = 27.98;
 
 const CartModal = ({ isOpen, onClose, items, onRemoveItem }: CartModalProps) => {
@@ -39,7 +40,8 @@ const CartModal = ({ isOpen, onClose, items, onRemoveItem }: CartModalProps) => 
   };
 
   const handleCheckout = () => {
-    window.open(CHECKOUT_URL, "_blank");
+    const checkoutUrl = kitCopoQuantity > 0 ? CHECKOUT_URL_COMBO : CHECKOUT_URL_SHIRT;
+    window.open(checkoutUrl, "_blank");
   };
 
   const totalItemsCount = items.reduce((acc, item) => acc + item.quantity, 0) + kitCopoQuantity;

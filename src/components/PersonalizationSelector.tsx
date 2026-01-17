@@ -68,34 +68,34 @@ const PersonalizationSelector = ({ onPersonalizationChange }: PersonalizationSel
   return (
     <div className="mb-4">
       {/* Tabs */}
-      <div className="flex gap-2 mb-4">
+      <div className="flex gap-1.5 mb-3">
         <button
           onClick={() => setActiveTab("custom")}
-          className={`flex-1 py-2.5 px-4 rounded-full font-medium text-sm transition-all ${
+          className={`flex-1 py-1.5 px-2 rounded-full font-medium text-xs transition-all ${
             activeTab === "custom"
               ? "bg-info text-white"
-              : "bg-transparent border-2 border-info text-info"
+              : "bg-transparent border border-info text-info"
           }`}
         >
           Adicione um nome
         </button>
         <button
           onClick={() => setActiveTab("athlete")}
-          className={`flex-1 py-2.5 px-4 rounded-full font-medium text-sm transition-all ${
+          className={`flex-1 py-1.5 px-2 rounded-full font-medium text-xs transition-all ${
             activeTab === "athlete"
               ? "bg-info text-white"
-              : "bg-transparent border-2 border-info text-info"
+              : "bg-transparent border border-info text-info"
           }`}
         >
-          Escolha um atleta disponível
+          Escolha um atleta
         </button>
       </div>
 
       {/* Custom Name/Number Form */}
       {activeTab === "custom" && (
-        <div className="space-y-4">
+        <div className="space-y-3">
           <div>
-            <label className="block text-sm font-bold text-foreground mb-2">
+            <label className="block text-xs font-bold text-foreground mb-1">
               Nome (Máximo 12)
             </label>
             <input
@@ -103,14 +103,14 @@ const PersonalizationSelector = ({ onPersonalizationChange }: PersonalizationSel
               value={customName}
               onChange={handleNameChange}
               placeholder="Qual o nome desejado"
-              className="w-full px-4 py-3 border-2 border-info/30 rounded-full text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-info transition-colors"
+              className="w-full px-3 py-2 border border-info/30 rounded-full text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-info transition-colors"
             />
-            <span className="text-sm text-muted-foreground mt-1 block">
-              {customName.length}/12 caracteres
+            <span className="text-xs text-muted-foreground mt-0.5 block">
+              {customName.length}/12
             </span>
           </div>
           <div>
-            <label className="block text-sm font-bold text-foreground mb-2">
+            <label className="block text-xs font-bold text-foreground mb-1">
               Número (Máximo 2)
             </label>
             <input
@@ -118,10 +118,10 @@ const PersonalizationSelector = ({ onPersonalizationChange }: PersonalizationSel
               value={customNumber}
               onChange={handleNumberChange}
               placeholder="XX"
-              className="w-24 px-4 py-3 border-2 border-info/30 rounded-full text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-info transition-colors text-center"
+              className="w-16 px-3 py-2 border border-info/30 rounded-full text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-info transition-colors text-center"
             />
-            <span className="text-sm text-muted-foreground mt-1 block">
-              {customNumber.length}/2 dígitos
+            <span className="text-xs text-muted-foreground mt-0.5 block">
+              {customNumber.length}/2
             </span>
           </div>
         </div>
@@ -132,23 +132,23 @@ const PersonalizationSelector = ({ onPersonalizationChange }: PersonalizationSel
         <div className="relative">
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="w-full px-4 py-3 border-2 border-info/30 rounded-xl text-left flex items-center justify-between focus:outline-none focus:border-info transition-colors"
+            className="w-full px-3 py-2 border border-info/30 rounded-lg text-left flex items-center justify-between focus:outline-none focus:border-info transition-colors text-sm"
           >
             <span className={selectedAthlete ? "text-foreground" : "text-muted-foreground"}>
               {selectedAthlete || "Selecione um atleta"}
             </span>
-            <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform ${isDropdownOpen ? "rotate-180" : ""}`} />
+            <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${isDropdownOpen ? "rotate-180" : ""}`} />
           </button>
           
           {isDropdownOpen && (
-            <div className="absolute z-20 w-full mt-2 bg-card border border-border rounded-xl shadow-lg max-h-64 overflow-y-auto">
+            <div className="absolute z-20 w-full mt-1 bg-card border border-border rounded-lg shadow-lg max-h-48 overflow-y-auto">
               {corinthiansAthletes.map((athlete, index) => (
                 <button
                   key={athlete.name}
                   onClick={() => handleAthleteSelect(athlete)}
-                  className={`w-full px-4 py-3 text-left hover:bg-info hover:text-white transition-colors ${
-                    index === 0 ? "rounded-t-xl bg-info text-white" : ""
-                  } ${index === corinthiansAthletes.length - 1 ? "rounded-b-xl" : ""}`}
+                  className={`w-full px-3 py-2 text-left text-sm hover:bg-info hover:text-white transition-colors ${
+                    index === 0 ? "rounded-t-lg bg-info text-white" : ""
+                  } ${index === corinthiansAthletes.length - 1 ? "rounded-b-lg" : ""}`}
                 >
                   {athlete.name} - {athlete.number}
                 </button>
