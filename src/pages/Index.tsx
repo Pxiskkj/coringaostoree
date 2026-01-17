@@ -102,16 +102,10 @@ const Index = () => {
             <Menu className="w-7 h-7 text-foreground" strokeWidth={2} />
           </button>
           
-          {/* Logo centered with stars */}
+          {/* Logo centered */}
           <div className="absolute left-1/2 transform -translate-x-1/2 text-center">
-            <div className="flex justify-center gap-0.5 mb-0.5">
-              <Star className="w-3 h-3 fill-rating-star text-rating-star" />
-              <Star className="w-3 h-3 fill-rating-star text-rating-star" />
-              <Star className="w-3 h-3 fill-rating-star text-rating-star" />
-            </div>
-            <h1 className="text-2xl font-extrabold text-primary tracking-tight leading-none" style={{ fontFamily: 'Georgia, serif' }}>
-              Coringão<span className="text-foreground">Mania</span>
-            </h1>
+            <h1 className="text-xl font-extrabold text-primary tracking-tight">Coringão</h1>
+            <span className="text-sm font-bold text-foreground -mt-1 block">Store</span>
           </div>
           
           {/* Cart */}
@@ -134,21 +128,19 @@ const Index = () => {
         {/* Product Image Carousel */}
         <ProductCarousel images={currentProduct.images} key={selectedColor} />
 
-        {/* Sales Badge */}
-        <div className="flex items-center justify-start gap-2 mt-4 py-3 px-5 bg-card rounded-2xl shadow-md border border-border/50">
-          <div className="flex items-center gap-0.5">
-            <Star className="w-4 h-4 fill-rating-star text-rating-star" />
-            <Star className="w-4 h-4 fill-rating-star text-rating-star" />
-            <Star className="w-4 h-4 fill-rating-star text-rating-star" />
-            <Star className="w-4 h-4 fill-rating-star text-rating-star" />
-            <Star className="w-4 h-4 fill-rating-star/30 text-rating-star" />
+        {/* Sales Badge - Compact */}
+        <div className="inline-flex items-center gap-1.5 mt-3 py-2 px-3 bg-muted/50 rounded-full">
+          <div className="flex items-center gap-px">
+            <Star className="w-3.5 h-3.5 fill-rating-star text-rating-star" />
+            <Star className="w-3.5 h-3.5 fill-rating-star text-rating-star" />
+            <Star className="w-3.5 h-3.5 fill-rating-star text-rating-star" />
+            <Star className="w-3.5 h-3.5 fill-rating-star text-rating-star" />
+            <Star className="w-3.5 h-3.5 fill-rating-star/40 text-rating-star" />
           </div>
-          <span className="font-bold text-foreground text-lg">4.8</span>
-          <div className="w-px h-5 bg-border/60 mx-1"></div>
-          <div className="flex items-center gap-1.5">
-            <span className="text-info font-bold text-lg">12.847</span>
-            <span className="text-muted-foreground font-medium">vendidos</span>
-          </div>
+          <span className="font-semibold text-foreground text-sm">4.8</span>
+          <div className="w-px h-4 bg-border/70"></div>
+          <span className="text-info font-semibold text-sm">12.847</span>
+          <span className="text-muted-foreground text-sm">vendidos</span>
         </div>
 
         {/* Product Info */}
@@ -160,7 +152,7 @@ const Index = () => {
 
           {/* Price */}
           <div className="mb-4">
-            <span className="price-original">R$ 299,99</span>
+            <span className="price-original">R$ 399,00</span>
             <div className="flex items-baseline gap-2">
               <span className="price-current">R$ 127,42</span>
               <span className="text-success text-sm font-medium">67% OFF</span>
