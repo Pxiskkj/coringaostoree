@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X, Plus, Minus, Check } from "lucide-react";
 import kitCoposImg from "@/assets/kit-copos-corinthians.jpeg";
 
@@ -22,8 +22,21 @@ const CHECKOUT_URL_SHIRT = "https://checkout.acessoapp.online/VCCL1O8SCNGB";
 const CHECKOUT_URL_COMBO = "https://checkout.acessoapp.online/VCCL1O8SCNST";
 const KIT_COPO_PRICE = 27.98;
 
+// Preload kit copos image immediately
+const preloadedKitImg = new Image();
+preloadedKitImg.src = kitCoposImg;
+
 const CartModal = ({ isOpen, onClose, items, onRemoveItem }: CartModalProps) => {
   const [kitCopoQuantity, setKitCopoQuantity] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  // Preload image when component mounts
+  useEffect(() => {
+    const img = new Image();
+    img.src = kitCoposImg;
+    img.onload = () => setImageLoaded(true);
+    if (img.complete) setImageLoaded(true);
+  }, []);
 
   if (!isOpen) return null;
 
