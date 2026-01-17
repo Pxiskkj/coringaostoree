@@ -88,7 +88,7 @@ const Newsletter = () => {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            placeholder="(11)11111-1111"
+            placeholder="Telefone"
             required
             maxLength={14}
             className="w-full px-5 py-3 bg-white/10 border border-white/30 rounded-full text-white placeholder:text-white/60 focus:outline-none focus:border-white transition-colors backdrop-blur-sm"
