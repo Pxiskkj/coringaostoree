@@ -94,7 +94,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header - New Design */}
+      {/* Header - Professional Design */}
       <header className="sticky top-0 z-40 bg-background border-b border-border py-3 px-4">
         <div className="container flex items-center justify-between">
           {/* Menu hamburger */}
@@ -102,10 +102,16 @@ const Index = () => {
             <Menu className="w-7 h-7 text-foreground" strokeWidth={2} />
           </button>
           
-          {/* Logo centered */}
+          {/* Logo centered with stars */}
           <div className="absolute left-1/2 transform -translate-x-1/2 text-center">
-            <h1 className="text-xl font-extrabold text-primary tracking-tight">Coringão</h1>
-            <span className="text-sm font-bold text-foreground -mt-1 block">Store</span>
+            <div className="flex justify-center gap-0.5 mb-0.5">
+              <Star className="w-3 h-3 fill-rating-star text-rating-star" />
+              <Star className="w-3 h-3 fill-rating-star text-rating-star" />
+              <Star className="w-3 h-3 fill-rating-star text-rating-star" />
+            </div>
+            <h1 className="text-2xl font-extrabold text-primary tracking-tight leading-none" style={{ fontFamily: 'Georgia, serif' }}>
+              Coringão<span className="text-foreground">Mania</span>
+            </h1>
           </div>
           
           {/* Cart */}
