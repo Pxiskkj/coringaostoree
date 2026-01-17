@@ -206,38 +206,38 @@ const ReviewsSection = () => {
   const displayedReviews = showAll ? reviews : reviews.slice(0, 3);
 
   return (
-    <section className="py-6">
-      <h2 className="section-title mb-4">AVALIAÇÕES</h2>
+    <section className="py-4">
+      <h2 className="text-sm font-bold text-foreground mb-3">AVALIAÇÕES</h2>
       
-      {/* Rating summary */}
-      <div className="mb-6">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-4xl font-bold text-foreground">4.9</span>
+      {/* Rating summary - compact */}
+      <div className="mb-4">
+        <div className="flex items-center gap-2 mb-3">
+          <span className="text-2xl font-bold text-foreground">4.9</span>
           <div className="flex gap-0.5">
             {[1, 2, 3, 4, 5].map((star) => (
               <Star
                 key={star}
-                className="w-5 h-5 fill-rating-star text-rating-star"
+                className="w-4 h-4 fill-rating-star text-rating-star"
               />
             ))}
           </div>
-          <span className="text-muted-foreground">(3.287 avaliações)</span>
+          <span className="text-xs text-muted-foreground">(3.287)</span>
         </div>
         
-        {/* Rating bars */}
-        <div className="space-y-2">
+        {/* Rating bars - compact */}
+        <div className="space-y-1">
           {ratingDistribution.map(({ stars, percentage }) => (
-            <div key={stars} className="flex items-center gap-2">
-              <span className="w-8 text-sm font-medium text-rating-star flex items-center gap-1">
-                {stars} <Star className="w-3 h-3 fill-rating-star" />
+            <div key={stars} className="flex items-center gap-1.5">
+              <span className="w-6 text-xs font-medium text-rating-star flex items-center gap-0.5">
+                {stars} <Star className="w-2.5 h-2.5 fill-rating-star" />
               </span>
-              <div className="flex-1 h-2 bg-rating-bar-bg rounded-full overflow-hidden">
+              <div className="flex-1 h-1.5 bg-rating-bar-bg rounded-full overflow-hidden">
                 <div 
                   className="h-full bg-rating-bar rounded-full transition-all duration-500"
                   style={{ width: `${percentage}%` }}
                 />
               </div>
-              <span className="w-12 text-sm text-muted-foreground text-right">
+              <span className="w-8 text-xs text-muted-foreground text-right">
                 {percentage}%
               </span>
             </div>
@@ -246,7 +246,7 @@ const ReviewsSection = () => {
       </div>
       
       {/* Review cards */}
-      <div className="space-y-3">
+      <div className="space-y-2">
         {displayedReviews.map((review, index) => (
           <ReviewCard key={index} {...review} />
         ))}
@@ -254,10 +254,10 @@ const ReviewsSection = () => {
       
       {/* Show more button */}
       {!showAll && reviews.length > 3 && (
-        <div className="flex justify-center mt-4">
+        <div className="flex justify-center mt-3">
           <button 
             onClick={() => setShowAll(true)}
-            className="btn-outline-success"
+            className="text-xs font-medium text-primary underline hover:text-primary/80"
           >
             Ver mais avaliações
           </button>
@@ -265,10 +265,10 @@ const ReviewsSection = () => {
       )}
       
       {showAll && (
-        <div className="flex justify-center mt-4">
+        <div className="flex justify-center mt-3">
           <button 
             onClick={() => setShowAll(false)}
-            className="btn-outline-success"
+            className="text-xs font-medium text-primary underline hover:text-primary/80"
           >
             Ver menos
           </button>
