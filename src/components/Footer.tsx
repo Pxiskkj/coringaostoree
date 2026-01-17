@@ -1,5 +1,6 @@
 import { Instagram, Twitter, Youtube, Facebook, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
+import paymentMethods from "@/assets/payment-methods.jpeg";
 
 interface AccordionItemProps {
   title: string;
@@ -27,6 +28,10 @@ const AccordionItem = ({ title, items, isOpen, onToggle }: AccordionItemProps) =
           <a
             key={index}
             href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
             className="block text-muted-foreground hover:text-foreground transition-colors"
           >
             {item}
@@ -91,46 +96,14 @@ const Footer = () => {
         />
       ))}
 
-      {/* Payment Methods - Updated Layout */}
+      {/* Payment Methods - Using the actual image */}
       <div className="border-t border-border px-4 py-6">
         <h4 className="text-primary font-semibold text-lg mb-4">FORMAS DE PAGAMENTOS</h4>
-        <div className="flex flex-wrap items-center gap-2">
-          {/* Visa */}
-          <div className="bg-[#F7F7F7] rounded-lg px-3 py-2 shadow-sm">
-            <span className="text-[#1A1F71] font-bold text-lg italic tracking-tight">VISA</span>
-          </div>
-          {/* Mastercard */}
-          <div className="bg-[#F7F7F7] rounded-lg px-3 py-2 shadow-sm flex items-center">
-            <div className="flex">
-              <div className="w-6 h-6 rounded-full bg-[#EB001B]"></div>
-              <div className="w-6 h-6 rounded-full bg-[#F79E1B] -ml-2"></div>
-            </div>
-          </div>
-          {/* Banri Compras */}
-          <div className="bg-[#F7F7F7] rounded-lg px-2 py-1 shadow-sm">
-            <div className="text-[#E4002B] font-bold text-[10px] leading-tight text-center">
-              <span className="text-[#1D428A]">BANRI</span><br/>
-              <span className="text-[#E4002B]">COMPRAS</span>
-            </div>
-          </div>
-          {/* Diners */}
-          <div className="bg-[#F7F7F7] rounded-lg px-3 py-2 shadow-sm">
-            <div className="w-8 h-8 rounded-full border-2 border-[#0066A1] flex items-center justify-center">
-              <div className="w-1.5 h-5 bg-[#0066A1] rounded-full"></div>
-            </div>
-          </div>
-          {/* PIX */}
-          <div className="bg-[#F7F7F7] rounded-lg px-3 py-2 shadow-sm flex items-center gap-1">
-            <div className="flex flex-col items-center">
-              <div className="w-3 h-3 bg-[#32BCAD] transform rotate-45"></div>
-            </div>
-            <span className="text-[#32BCAD] font-bold text-sm ml-1">pix</span>
-          </div>
-          {/* American Express */}
-          <div className="bg-[#006FCF] rounded-lg px-2 py-1 shadow-sm">
-            <span className="text-white font-bold text-[8px] leading-tight block text-center">AMERICAN<br/>EXPRESS</span>
-          </div>
-        </div>
+        <img 
+          src={paymentMethods} 
+          alt="Formas de pagamento: Visa, Mastercard, Banri Compras, Diners, PIX, American Express"
+          className="w-full max-w-md mx-auto"
+        />
       </div>
 
       {/* Blue Line Separator */}
