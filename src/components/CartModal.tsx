@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import { X, Plus, Minus, Check } from "lucide-react";
 import kitCoposImg from "@/assets/kit-copos-corinthians.jpeg";
 
+// Preload kit copos image immediately at module level
+const preloadedKitImg = new Image();
+preloadedKitImg.src = kitCoposImg;
+
 interface CartItem {
   id: string;
   name: string;
@@ -22,20 +26,16 @@ const CHECKOUT_URL_SHIRT = "https://checkout.acessoapp.online/VCCL1O8SCNGB";
 const CHECKOUT_URL_COMBO = "https://checkout.acessoapp.online/VCCL1O8SCNST";
 const KIT_COPO_PRICE = 27.98;
 
-// Preload kit copos image immediately
-const preloadedKitImg = new Image();
-preloadedKitImg.src = kitCoposImg;
-
 const CartModal = ({ isOpen, onClose, items, onRemoveItem }: CartModalProps) => {
   const [kitCopoQuantity, setKitCopoQuantity] = useState(0);
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(preloadedKitImg.complete);
 
-  // Preload image when component mounts
   useEffect(() => {
-    const img = new Image();
-    img.src = kitCoposImg;
-    img.onload = () => setImageLoaded(true);
-    if (img.complete) setImageLoaded(true);
+    if (preloadedKitImg.complete) {
+      setImageLoaded(true);
+    } else {
+      preloadedKitImg.onload = () => setImageLoaded(true);
+    }
   }, []);
 
   if (!isOpen) return null;
@@ -89,7 +89,10 @@ const CartModal = ({ isOpen, onClose, items, onRemoveItem }: CartModalProps) => 
               <img 
                 src={kitCoposImg} 
                 alt="Kit Copo Munich e Copo Dose Corinthians"
-                className="w-full h-full object-cover"
+                className={`w-full h-full object-cover transition-opacity duration-150 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                loading="eager"
+                decoding="async"
+                onLoad={() => setImageLoaded(true)}
               />
             </div>
             <div className="flex-1 min-w-0">
