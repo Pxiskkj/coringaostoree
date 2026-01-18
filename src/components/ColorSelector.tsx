@@ -1,5 +1,12 @@
+import { useEffect, useState } from "react";
 import camisaBrancaThumb from "@/assets/camisa-branca-thumb.jpeg";
 import camisaPretaThumb from "@/assets/camisa-preta-thumb.jpeg";
+
+// Preload thumbnails immediately
+const preloadBranca = new Image();
+preloadBranca.src = camisaBrancaThumb;
+const preloadPreta = new Image();
+preloadPreta.src = camisaPretaThumb;
 
 interface ColorOption {
   id: string;
@@ -19,6 +26,20 @@ const colorThumbnails: Record<string, string> = {
 };
 
 const ColorSelector = ({ colors, selectedColor, onSelectColor }: ColorSelectorProps) => {
+  const [imagesLoaded, setImagesLoaded] = useState({
+    branca: preloadBranca.complete,
+    preta: preloadPreta.complete,
+  });
+
+  useEffect(() => {
+    if (!preloadBranca.complete) {
+      preloadBranca.onload = () => setImagesLoaded(prev => ({ ...prev, branca: true }));
+    }
+    if (!preloadPreta.complete) {
+      preloadPreta.onload = () => setImagesLoaded(prev => ({ ...prev, preta: true }));
+    }
+  }, []);
+
   return (
     <div className="flex gap-3">
       {colors.map((color) => (
@@ -36,8 +57,10 @@ const ColorSelector = ({ colors, selectedColor, onSelectColor }: ColorSelectorPr
           <img 
             src={colorThumbnails[color.id]} 
             alt={color.name}
-            className="w-full h-full object-contain"
+            className={`w-full h-full object-contain transition-opacity duration-150 ${imagesLoaded[color.id as keyof typeof imagesLoaded] ? 'opacity-100' : 'opacity-0'}`}
             loading="eager"
+            decoding="async"
+            onLoad={() => setImagesLoaded(prev => ({ ...prev, [color.id]: true }))}
           />
         </button>
       ))}
