@@ -1,10 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { X, Plus, Minus, Check } from "lucide-react";
 import kitCoposImg from "@/assets/kit-copos-corinthians.jpeg";
-
-// Preload kit copos image immediately at module level
-const preloadedKitImg = new Image();
-preloadedKitImg.src = kitCoposImg;
 
 interface CartItem {
   id: string;
@@ -28,15 +24,6 @@ const KIT_COPO_PRICE = 27.98;
 
 const CartModal = ({ isOpen, onClose, items, onRemoveItem }: CartModalProps) => {
   const [kitCopoQuantity, setKitCopoQuantity] = useState(0);
-  const [imageLoaded, setImageLoaded] = useState(preloadedKitImg.complete);
-
-  useEffect(() => {
-    if (preloadedKitImg.complete) {
-      setImageLoaded(true);
-    } else {
-      preloadedKitImg.onload = () => setImageLoaded(true);
-    }
-  }, []);
 
   if (!isOpen) return null;
 
@@ -89,10 +76,8 @@ const CartModal = ({ isOpen, onClose, items, onRemoveItem }: CartModalProps) => 
               <img 
                 src={kitCoposImg} 
                 alt="Kit Copo Munich e Copo Dose Corinthians"
-                className={`w-full h-full object-cover transition-opacity duration-150 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                className="w-full h-full object-cover"
                 loading="eager"
-                decoding="async"
-                onLoad={() => setImageLoaded(true)}
               />
             </div>
             <div className="flex-1 min-w-0">

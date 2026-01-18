@@ -117,7 +117,7 @@ const ShippingCalculator = () => {
           onChange={handleCepChange}
           placeholder="00000-000"
           maxLength={9}
-          className="flex-1 px-4 py-3 border-2 border-primary/30 rounded-full text-foreground bg-background focus:border-primary focus:outline-none transition-colors text-base"
+          className="flex-1 px-3 py-2.5 border-2 border-primary/30 rounded-full text-foreground bg-background focus:border-primary focus:outline-none transition-colors text-sm"
         />
         <button
           onClick={calculateDelivery}
