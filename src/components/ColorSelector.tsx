@@ -25,7 +25,7 @@ const ColorSelector = ({ colors, selectedColor, onSelectColor }: ColorSelectorPr
         <button
           key={color.id}
           onClick={() => onSelectColor(color.id)}
-          className={`w-16 h-20 rounded-lg border-2 transition-all duration-200 overflow-hidden bg-secondary ${
+          className={`w-12 h-16 rounded-lg border-2 transition-all duration-200 overflow-hidden bg-secondary ${
             selectedColor === color.id
               ? "border-primary ring-2 ring-primary ring-offset-1"
               : "border-border hover:border-primary/50"
