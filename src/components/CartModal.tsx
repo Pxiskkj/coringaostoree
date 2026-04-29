@@ -2,6 +2,13 @@ import { useState } from "react";
 import { X, Plus, Minus, Check } from "lucide-react";
 import kitCoposImg from "@/assets/kit-copos-cart.png";
 
+// Preload kit copos image immediately at module load
+if (typeof window !== "undefined") {
+  const img = new Image();
+  img.src = kitCoposImg;
+  img.decoding = "async";
+}
+
 interface CartItem {
   id: string;
   name: string;

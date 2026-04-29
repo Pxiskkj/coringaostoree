@@ -69,8 +69,25 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       </nav>
 
       <div className="border-t border-border px-5 py-4 flex items-center gap-3">
-        <User className="w-5 h-5 text-foreground" strokeWidth={1.8} />
-        <span className="text-base text-foreground">Minha conta</span>
+        <button
+          onClick={() => {
+            onClose();
+            const goToNewsletter = () => {
+              const el = document.getElementById("newsletter");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+            };
+            if (location.pathname !== "/") {
+              navigate("/");
+              setTimeout(goToNewsletter, 200);
+            } else {
+              goToNewsletter();
+            }
+          }}
+          className="flex items-center gap-3"
+        >
+          <User className="w-5 h-5 text-foreground" strokeWidth={1.8} />
+          <span className="text-base text-foreground">Minha conta</span>
+        </button>
       </div>
     </div>
   );
