@@ -15,7 +15,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
 
-    --primary: 0 72% 51%;
+    --primary: 217 91% 45%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 96%;
@@ -32,7 +32,7 @@
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 0 72% 51%;
+    --ring: 217 91% 45%;
 
     --radius: 0.5rem;
 
@@ -43,8 +43,8 @@
     --success: 142 76% 36%;
     --success-light: 142 76% 95%;
     --warning: 45 93% 47%;
-    --info: 0 72% 51%;
-    --info-light: 0 72% 95%;
+    --info: 217 91% 45%;
+    --info-light: 217 91% 95%;
     
     /* Rating colors */
     --rating-star: 45 100% 50%;
@@ -66,7 +66,7 @@
     --popover: 0 0% 8%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 72% 51%;
+    --primary: 217 91% 45%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 15%;
@@ -83,7 +83,14 @@
 
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 0 72% 51%;
+    --ring: 217 91% 45%;
+  }
+}
+
+/* Prevent iOS zoom on input focus */
+@layer base {
+  input, textarea, select {
+    font-size: 16px;
   }
 }
 
