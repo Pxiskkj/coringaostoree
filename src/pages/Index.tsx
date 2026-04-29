@@ -12,21 +12,19 @@ import Footer from "@/components/Footer";
 import PersonalizationSelector from "@/components/PersonalizationSelector";
 import { ShoppingCart, Truck, Shield, Star, Menu } from "lucide-react";
 
-// Import camisa branca
-import camisa1 from "@/assets/camisa-corinthians-1.jpg";
-import camisa2 from "@/assets/camisa-corinthians-2.jpg";
-import camisa3 from "@/assets/camisa-corinthians-3.jpg";
-import camisa4 from "@/assets/camisa-corinthians-4.jpg";
-import camisa5 from "@/assets/camisa-corinthians-5.jpg";
+// Import camisa amarela Brasil
+import camisa1 from "@/assets/camisa-brasil-1.webp";
+import camisa2 from "@/assets/camisa-brasil-2.webp";
+import camisa3 from "@/assets/camisa-brasil-3.webp";
+import camisa4 from "@/assets/camisa-brasil-4.webp";
+import camisa5 from "@/assets/camisa-brasil-5.webp";
 
-// Import camisa preta
-import camisaPreta1 from "@/assets/camisa-preta-1.jpg";
-import camisaPreta2 from "@/assets/camisa-preta-2.jpg";
-import camisaPreta3 from "@/assets/camisa-preta-3.jpg";
-import camisaPreta4 from "@/assets/camisa-preta-4.jpg";
-import camisaPreta5 from "@/assets/camisa-preta-5.jpg";
-import camisaPreta6 from "@/assets/camisa-preta-6.jpg";
-import camisaPreta7 from "@/assets/camisa-preta-7.jpg";
+// Import camisa azul Brasil Jordan
+import camisaPreta1 from "@/assets/camisa-brasil-azul-1.webp";
+import camisaPreta2 from "@/assets/camisa-brasil-azul-2.webp";
+import camisaPreta3 from "@/assets/camisa-brasil-azul-3.webp";
+import camisaPreta4 from "@/assets/camisa-brasil-azul-4.webp";
+import camisaPreta5 from "@/assets/camisa-brasil-azul-5.webp";
 
 // Import kit copos and banner for preload
 import kitCoposImg from "@/assets/kit-copos-corinthians.jpeg";
@@ -35,7 +33,7 @@ import camisaBrancaThumb from "@/assets/camisa-branca-thumb.jpeg";
 import camisaPretaThumb from "@/assets/camisa-preta-thumb.jpeg";
 
 const productImagesBranca = [camisa1, camisa2, camisa3, camisa4, camisa5];
-const productImagesPreta = [camisaPreta1, camisaPreta2, camisaPreta3, camisaPreta4, camisaPreta5, camisaPreta6, camisaPreta7];
+const productImagesPreta = [camisaPreta1, camisaPreta2, camisaPreta3, camisaPreta4, camisaPreta5];
 
 // Preload all images immediately with high priority
 const preloadImages = [
@@ -69,17 +67,17 @@ if (typeof document !== 'undefined') {
 const sizes = ["P", "M", "G", "GG", "2GG", "3GG", "4GG"];
 
 const colorOptions = [
-  { id: "branca", name: "Branca", colorClass: "bg-white" },
-  { id: "preta", name: "Preta", colorClass: "bg-corinthians-black" },
+  { id: "branca", name: "Amarela", colorClass: "bg-yellow-400" },
+  { id: "preta", name: "Azul", colorClass: "bg-blue-700" },
 ];
 
 const productInfo = {
   branca: {
-    name: "Camisa Nike Corinthians I 2025/26 Torcedor Pro Masculina",
+    name: "Camisa Nike Brasil Torcedor Oficial | Copa 2026",
     images: productImagesBranca,
   },
   preta: {
-    name: "Camisa Corinthians Nike Total 90 III 2025/26 Torcedor Pro Masculina",
+    name: "Camisa Brasil Nike Jordan I 2026/2027 Torcedor Pro Azul Masculina",
     images: productImagesPreta,
   },
 };
@@ -139,8 +137,8 @@ const Index = () => {
           
           {/* Logo centered */}
           <div className="absolute left-1/2 transform -translate-x-1/2 text-center">
-            <h1 className="text-xl font-extrabold text-primary tracking-tight">Coringão</h1>
-            <span className="text-sm font-bold text-foreground -mt-1 block">Store</span>
+            <h1 className="text-xl font-extrabold text-primary tracking-tight">Copa</h1>
+            <span className="text-sm font-bold text-foreground -mt-1 block">Brasil</span>
           </div>
           
           {/* Cart */}
