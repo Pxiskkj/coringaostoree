@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ProductCarousel from "@/components/ProductCarousel";
 import SizeSelector from "@/components/SizeSelector";
 import ColorSelector from "@/components/ColorSelector";
@@ -10,6 +10,7 @@ import ShippingCalculator from "@/components/ShippingCalculator";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 import PersonalizationSelector from "@/components/PersonalizationSelector";
+import MobileMenu from "@/components/MobileMenu";
 import { ShoppingCart, Truck, Shield, Star, Menu } from "lucide-react";
 
 // Import camisa amarela Brasil
@@ -26,43 +27,12 @@ import camisaPreta3 from "@/assets/camisa-brasil-azul-3.webp";
 import camisaPreta4 from "@/assets/camisa-brasil-azul-4.webp";
 import camisaPreta5 from "@/assets/camisa-brasil-azul-5.webp";
 
-// Import kit copos and banner for preload
-import kitCoposImg from "@/assets/kit-copos-corinthians.jpeg";
-import coposBanner from "@/assets/copo-corinthians-banner.jpeg";
-import camisaBrancaThumb from "@/assets/camisa-brasil-1.webp";
-import camisaPretaThumb from "@/assets/camisa-brasil-azul-1.webp";
+// Import kit copos and banner
+import kitCoposImg from "@/assets/kit-copos-cart.png";
+import coposBanner from "@/assets/copo-brinde-banner.png";
 
 const productImagesBranca = [camisa1, camisa2, camisa3, camisa4, camisa5];
 const productImagesPreta = [camisaPreta1, camisaPreta2, camisaPreta3, camisaPreta4, camisaPreta5];
-
-// Preload all images immediately with high priority
-const preloadImages = [
-  ...productImagesBranca, 
-  ...productImagesPreta, 
-  kitCoposImg, 
-  coposBanner,
-  camisaBrancaThumb,
-  camisaPretaThumb
-];
-
-// Create preload links in head for critical images
-if (typeof document !== 'undefined') {
-  preloadImages.forEach((src, index) => {
-    // Use Image object for immediate preloading
-    const img = new Image();
-    img.src = src;
-    img.decoding = 'async';
-    
-    // Also add preload link for first few critical images
-    if (index < 4) {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'image';
-      link.href = src;
-      document.head.appendChild(link);
-    }
-  });
-}
 
 const sizes = ["P", "M", "G", "GG", "2GG", "3GG", "4GG"];
 
@@ -86,6 +56,7 @@ const Index = () => {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedColor, setSelectedColor] = useState<"branca" | "preta">("branca");
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cartItems, setCartItems] = useState<Array<{
     id: string;
     name: string;
@@ -129,16 +100,16 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       {/* Header - Professional Design */}
       <header className="sticky top-0 z-40 bg-background border-b border-border py-3 px-4">
-        <div className="container flex items-center justify-between">
+        <div className="container flex items-center justify-between relative">
           {/* Menu hamburger */}
-          <button className="p-1" aria-label="Menu">
+          <button onClick={() => setIsMenuOpen(true)} className="p-1" aria-label="Menu">
             <Menu className="w-7 h-7 text-foreground" strokeWidth={2} />
           </button>
           
           {/* Logo centered */}
           <div className="absolute left-1/2 transform -translate-x-1/2 text-center">
-            <h1 className="text-xl font-extrabold text-primary tracking-tight">Copa</h1>
-            <span className="text-sm font-bold text-foreground -mt-1 block">Brasil</span>
+            <h1 className="text-xl font-extrabold text-primary tracking-tight">COPA</h1>
+            <span className="text-sm font-bold text-foreground -mt-1 block">BRASIL</span>
           </div>
           
           {/* Cart */}
@@ -266,6 +237,9 @@ const Index = () => {
         items={cartItems}
         onRemoveItem={handleRemoveItem}
       />
+
+      {/* Mobile Menu */}
+      <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </div>
   );
 };
