@@ -3,9 +3,9 @@ import { Check, Package, Shirt, Shield, Award } from "lucide-react";
 const ProductDescription = () => {
   const features = [
     "Tecido 100% poliéster com tecnologia Nike Dri-FIT de alta performance",
-    "Escudo do Sport Club Corinthians Paulista bordado com precisão",
+    "Escudo da CBF (Confederação Brasileira de Futebol) bordado com precisão",
     "Patrocínios oficiais estampados conforme versão de jogo",
-    "Gola careca com acabamento premium e etiqueta interna tecida",
+    "Gola com acabamento premium e etiqueta interna tecida",
     "Corte masculino regular com ajuste confortável",
     "Material leve, respirável e de secagem rápida",
     "Produto 100% original com certificado de autenticidade Nike",
@@ -16,7 +16,7 @@ const ProductDescription = () => {
     { icon: Shirt, label: "Composição", value: "100% Poliéster reciclado" },
     { icon: Package, label: "Modelo", value: "Torcedor Pro Masculina" },
     { icon: Shield, label: "Garantia", value: "90 dias contra defeitos" },
-    { icon: Award, label: "Temporada", value: "2025/2026" },
+    { icon: Award, label: "Temporada", value: "Copa 2026" },
   ];
 
   return (
@@ -27,16 +27,16 @@ const ProductDescription = () => {
         {/* Main description */}
         <div className="bg-muted/30 rounded-lg p-4">
           <p className="text-foreground leading-relaxed mb-3">
-            A <strong>Camisa Oficial Nike Corinthians 2025/26</strong> é o manto sagrado 
-            para os verdadeiros apaixonados pelo Timão. Desenvolvida com a mais alta 
-            tecnologia Nike, esta camisa oferece conforto, durabilidade e o orgulho de 
-            vestir as cores do clube mais amado do Brasil.
+            A <strong>Camisa Oficial Nike Brasil Copa 2026</strong> é o manto sagrado 
+            da Seleção Brasileira, desenvolvida para os verdadeiros apaixonados pelo 
+            futebol nacional. Com a mais alta tecnologia Nike, oferece conforto, 
+            durabilidade e o orgulho de vestir as cores do penta campeão mundial.
           </p>
           
           <p className="text-foreground leading-relaxed">
-            Com design exclusivo que celebra a tradição alvinegra, a camisa traz todos 
+            Com design exclusivo que celebra a tradição amarelinha, a camisa traz todos 
             os detalhes oficiais da temporada, incluindo os patrocínios e o escudo 
-            bordado do Sport Club Corinthians Paulista. Perfeita para torcer na arquibancada, 
+            bordado da CBF. Perfeita para torcer pelo Brasil na Copa do Mundo, 
             jogar com os amigos ou usar no dia a dia.
           </p>
         </div>

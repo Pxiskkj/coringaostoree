@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import camisaBrancaThumb from "@/assets/camisa-branca-thumb.jpeg";
-import camisaPretaThumb from "@/assets/camisa-preta-thumb.jpeg";
+import camisaBrancaThumb from "@/assets/camisa-brasil-1.webp";
+import camisaPretaThumb from "@/assets/camisa-brasil-azul-1.webp";
 
 // Preload thumbnails immediately
 const preloadBranca = new Image();
