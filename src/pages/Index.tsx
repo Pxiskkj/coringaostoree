@@ -29,8 +29,8 @@ import camisaPreta5 from "@/assets/camisa-brasil-azul-5.webp";
 // Import kit copos and banner for preload
 import kitCoposImg from "@/assets/kit-copos-corinthians.jpeg";
 import coposBanner from "@/assets/copo-corinthians-banner.jpeg";
-import camisaBrancaThumb from "@/assets/camisa-branca-thumb.jpeg";
-import camisaPretaThumb from "@/assets/camisa-preta-thumb.jpeg";
+import camisaBrancaThumb from "@/assets/camisa-brasil-1.webp";
+import camisaPretaThumb from "@/assets/camisa-brasil-azul-1.webp";
 
 const productImagesBranca = [camisa1, camisa2, camisa3, camisa4, camisa5];
 const productImagesPreta = [camisaPreta1, camisaPreta2, camisaPreta3, camisaPreta4, camisaPreta5];

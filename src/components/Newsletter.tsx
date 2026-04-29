@@ -70,7 +70,7 @@ const Newsletter = () => {
           NEWSLETTER
         </h2>
         <p className="text-white/90 text-sm mb-6">
-          Inscreva-se e ganhe descontos de até 70% em produtos oficiais do Corinthians.
+          Inscreva-se e ganhe descontos de até 70% em produtos oficiais do Brasil.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-3">
