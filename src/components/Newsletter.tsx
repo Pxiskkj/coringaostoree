@@ -59,6 +59,7 @@ const Newsletter = () => {
 
   return (
     <section 
+      id="newsletter"
       className="relative py-12 px-4 bg-cover bg-center overflow-hidden min-h-[500px] w-full"
       style={{ backgroundImage: `url(${newsletterBg})` }}
     >
