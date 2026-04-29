@@ -53,7 +53,7 @@ const Footer = () => {
     {
       id: "institucional",
       title: "Institucional",
-      items: ["Sobre o Corinthians", "História do Clube", "Trabalhe Conosco"],
+      items: ["Sobre o Brasil", "História da Seleção", "Trabalhe Conosco"],
     },
     {
       id: "ajuda",
@@ -71,10 +71,10 @@ const Footer = () => {
     <div className="bg-background border-t border-border mt-8">
       {/* Social Media Section */}
       <div className="py-4 text-center">
-        <p className="text-primary font-semibold text-sm mb-3">Acompanhe o Corinthians</p>
+        <p className="text-primary font-semibold text-sm mb-3">Acompanhe o Brasil</p>
         <div className="flex justify-center gap-8">
           <a 
-            href="https://www.instagram.com/corinthians?igsh=eDkxbG44dHR3ZThn" 
+            href="https://www.instagram.com/brasil?igsh=MW1yc2g1aHExdXcwcw==" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-primary hover:opacity-80 transition-opacity" 
@@ -83,7 +83,7 @@ const Footer = () => {
             <Instagram className="w-7 h-7" strokeWidth={1.5} />
           </a>
           <a 
-            href="https://x.com/corinthians?s=21" 
+            href="https://x.com/cbf_futebol?s=21" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-primary hover:opacity-80 transition-opacity" 
@@ -92,7 +92,7 @@ const Footer = () => {
             <Twitter className="w-7 h-7" strokeWidth={1.5} />
           </a>
           <a 
-            href="https://youtube.com/@corinthians?si=3W5kUiJZgeCz6LCx" 
+            href="https://youtube.com/@brasil?si=96FKiZXO4xNZFCUL" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-primary hover:opacity-80 transition-opacity" 
@@ -101,7 +101,7 @@ const Footer = () => {
             <Youtube className="w-7 h-7" strokeWidth={1.5} />
           </a>
           <a 
-            href="https://www.facebook.com/share/1C5JppE1tH/?mibextid=wwXIfr" 
+            href="https://www.facebook.com/share/17WfULSSSL/?mibextid=wwXIfr" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-primary hover:opacity-80 transition-opacity" 
@@ -142,10 +142,10 @@ const Footer = () => {
           ⭐ ⭐ ⭐
         </h3>
         <h3 className="text-lg font-bold text-muted-foreground mb-3">
-          Coringão Store
+          Copa Brasil
         </h3>
         <p className="text-muted-foreground text-xs leading-relaxed max-w-md mx-auto">
-          Os preços, promoções, condições de pagamento, frete e produtos anunciados na loja virtual são válidos exclusivamente para compras online e estão sujeitos à alteração sem aviso prévio. Estas ofertas são válidas até o término de nossos estoques para internet. As vendas ainda estão sujeitas à análise e confirmação de dados. Caso exista alguma diferença nos preços ofertados, será considerado válido o preço do Carrinho de Compras. As imagens dos produtos são meramente ilustrativas. SPORT CLUB CORINTHIANS PAULISTA. CNPJ: 61.902.722/0001-26 Copyright © 2026 - Todos os direitos reservados Praça Roberto Gomes Pedrosa, 1 - Morumbi, São Paulo - SP
+          Os preços, promoções, condições de pagamento, frete e produtos anunciados na loja virtual são válidos exclusivamente para compras online e estão sujeitos à alteração sem aviso prévio. Estas ofertas são válidas até o término de nossos estoques para internet. As vendas ainda estão sujeitas à análise e confirmação de dados. Caso exista alguma diferença nos preços ofertados, será considerado válido o preço do Carrinho de Compras. As imagens dos produtos são meramente ilustrativas. CONFEDERAÇÃO BRASILEIRA DE FUTEBOL - CBF. CNPJ: 33.655.444/0001-26 Copyright © 2026 - Todos os direitos reservados. Av. Luis Carlos Prestes, 130 - Barra da Tijuca, Rio de Janeiro - RJ, CEP 22775-055.
         </p>
       </div>
     </div>
