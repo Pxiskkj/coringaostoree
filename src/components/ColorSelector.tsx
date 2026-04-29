@@ -1,12 +1,5 @@
-import { useEffect, useState } from "react";
-import camisaBrancaThumb from "@/assets/camisa-brasil-1.webp";
-import camisaPretaThumb from "@/assets/camisa-brasil-azul-1.webp";
-
-// Preload thumbnails immediately
-const preloadBranca = new Image();
-preloadBranca.src = camisaBrancaThumb;
-const preloadPreta = new Image();
-preloadPreta.src = camisaPretaThumb;
+import camisaAmarelaThumb from "@/assets/camisa-amarela-thumb.jpeg";
+import camisaAzulThumb from "@/assets/camisa-azul-thumb.jpeg";
 
 interface ColorOption {
   id: string;
@@ -21,25 +14,11 @@ interface ColorSelectorProps {
 }
 
 const colorThumbnails: Record<string, string> = {
-  branca: camisaBrancaThumb,
-  preta: camisaPretaThumb,
+  branca: camisaAmarelaThumb,
+  preta: camisaAzulThumb,
 };
 
 const ColorSelector = ({ colors, selectedColor, onSelectColor }: ColorSelectorProps) => {
-  const [imagesLoaded, setImagesLoaded] = useState({
-    branca: preloadBranca.complete,
-    preta: preloadPreta.complete,
-  });
-
-  useEffect(() => {
-    if (!preloadBranca.complete) {
-      preloadBranca.onload = () => setImagesLoaded(prev => ({ ...prev, branca: true }));
-    }
-    if (!preloadPreta.complete) {
-      preloadPreta.onload = () => setImagesLoaded(prev => ({ ...prev, preta: true }));
-    }
-  }, []);
-
   return (
     <div className="flex gap-3">
       {colors.map((color) => (
@@ -54,13 +33,12 @@ const ColorSelector = ({ colors, selectedColor, onSelectColor }: ColorSelectorPr
           aria-label={`Selecionar cor ${color.name}`}
           title={color.name}
         >
-          <img 
-            src={colorThumbnails[color.id]} 
+          <img
+            src={colorThumbnails[color.id]}
             alt={color.name}
-            className={`w-full h-full object-contain transition-opacity duration-150 ${imagesLoaded[color.id as keyof typeof imagesLoaded] ? 'opacity-100' : 'opacity-0'}`}
+            className="w-full h-full object-contain"
             loading="eager"
             decoding="async"
-            onLoad={() => setImagesLoaded(prev => ({ ...prev, [color.id]: true }))}
           />
         </button>
       ))}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { X, Plus, Minus, Check } from "lucide-react";
-import kitCoposImg from "@/assets/kit-copos-corinthians.jpeg";
+import kitCoposImg from "@/assets/kit-copos-cart.png";
 
 interface CartItem {
   id: string;
@@ -75,13 +75,13 @@ const CartModal = ({ isOpen, onClose, items, onRemoveItem }: CartModalProps) => 
             <div className="w-16 h-16 bg-card rounded-lg overflow-hidden flex items-center justify-center flex-shrink-0">
               <img 
                 src={kitCoposImg} 
-                alt="Kit Copo Munich e Copo Dose Corinthians"
-                className="w-full h-full object-cover"
+                alt="Kit Copo Cerveja e Dose Brasil"
+                className="w-full h-full object-contain"
                 loading="eager"
               />
             </div>
             <div className="flex-1 min-w-0">
-              <h4 className="font-medium text-foreground text-xs leading-tight">Kit Copo Munich e Copo Dose Corinthians</h4>
+              <h4 className="font-medium text-foreground text-xs leading-tight">Kit Copo Munich e Copo Dose Brasil</h4>
               <p className="text-primary font-bold text-sm">R$ {KIT_COPO_PRICE.toFixed(2).replace('.', ',')}</p>
               {kitCopoQuantity > 0 && (
                 <p className="text-xs text-muted-foreground">Qtd: {kitCopoQuantity}</p>

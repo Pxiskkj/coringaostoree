@@ -99,7 +99,7 @@ const ProductCarousel = ({ images }: ProductCarouselProps) => {
               <img 
                 src={image} 
                 alt={`Produto ${index + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
                 loading="eager"
                 decoding="async"
                 fetchPriority={index === 0 ? "high" : "auto"}
