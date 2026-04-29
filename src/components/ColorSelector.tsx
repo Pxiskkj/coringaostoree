@@ -36,7 +36,7 @@ const ColorSelector = ({ colors, selectedColor, onSelectColor }: ColorSelectorPr
           <img
             src={colorThumbnails[color.id]}
             alt={color.name}
-            className="w-full h-full object-contain"
+            className="w-full h-full object-cover"
             loading="eager"
             decoding="async"
           />
