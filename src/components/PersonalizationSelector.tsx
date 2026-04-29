@@ -20,7 +20,7 @@ const corinthiansAthletes = [
   { name: "VINICIUS JR", number: "7" },
   { name: "BRUNO GUIMARÃES", number: "8" },
   { name: "ENDRICK", number: "9" },
-  { name: "RODRYGO", number: "10" },
+  { name: "NEYMAR JR", number: "10" },
   { name: "RAPHINHA", number: "11" },
   { name: "EDERSON", number: "12" },
   { name: "DANI ALVES", number: "13" },
