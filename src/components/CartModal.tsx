@@ -23,13 +23,18 @@ interface CartModalProps {
   onClose: () => void;
   items: CartItem[];
   onRemoveItem: (id: string) => void;
+  selectedColor?: "branca" | "preta";
 }
 
-const CHECKOUT_URL_SHIRT = "https://checkout.acessoapp.online/VCCL1O8SCNGB";
-const CHECKOUT_URL_COMBO = "https://checkout.acessoapp.online/VCCL1O8SCNST";
+const CHECKOUT_URLS = {
+  branca: "https://pay.copabrasilmania.site/checkout?product=adf70c5b-1e4d-11f1-b2a5-46da4690ad53",
+  branca_combo: "https://pay.copabrasilmania.site/checkout?product=d056a941-44c3-11f1-b2a5-46da4690ad53",
+  preta: "https://pay.copabrasilmania.site/checkout?product=97f43c28-44c3-11f1-b2a5-46da4690ad53",
+  preta_combo: "https://pay.copabrasilmania.site/checkout?product=fe386ddb-44c3-11f1-b2a5-46da4690ad53",
+};
 const KIT_COPO_PRICE = 27.98;
 
-const CartModal = ({ isOpen, onClose, items, onRemoveItem }: CartModalProps) => {
+const CartModal = ({ isOpen, onClose, items, onRemoveItem, selectedColor = "branca" }: CartModalProps) => {
   const [kitCopoQuantity, setKitCopoQuantity] = useState(0);
 
   if (!isOpen) return null;
@@ -47,7 +52,8 @@ const CartModal = ({ isOpen, onClose, items, onRemoveItem }: CartModalProps) => 
   };
 
   const handleCheckout = () => {
-    const checkoutUrl = kitCopoQuantity > 0 ? CHECKOUT_URL_COMBO : CHECKOUT_URL_SHIRT;
+    const key = kitCopoQuantity > 0 ? `${selectedColor}_combo` : selectedColor;
+    const checkoutUrl = CHECKOUT_URLS[key as keyof typeof CHECKOUT_URLS];
     window.open(checkoutUrl, "_blank");
   };
 
