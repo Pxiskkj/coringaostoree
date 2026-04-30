@@ -169,7 +169,7 @@ const Index = () => {
           {/* Color selector */}
           <div className="mb-4">
             <p className="text-sm font-medium text-foreground mb-2">
-              Cor: <span className="font-normal capitalize">{selectedColor}</span>
+              Cor: <span className="font-normal">{selectedColor === "branca" ? "Amarela" : "Azul"}</span>
             </p>
             <ColorSelector 
               colors={colorOptions}

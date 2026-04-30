@@ -25,8 +25,12 @@ interface CartModalProps {
   onRemoveItem: (id: string) => void;
 }
 
-const CHECKOUT_URL_SHIRT = "https://checkout.acessoapp.online/VCCL1O8SCNGB";
-const CHECKOUT_URL_COMBO = "https://checkout.acessoapp.online/VCCL1O8SCNST";
+const CHECKOUT_URLS = {
+  branca: "https://pay.copabrasilmania.site/checkout?product=adf70c5b-1e4d-11f1-b2a5-46da4690ad53",
+  branca_combo: "https://pay.copabrasilmania.site/checkout?product=d056a941-44c3-11f1-b2a5-46da4690ad53",
+  preta: "https://pay.copabrasilmania.site/checkout?product=97f43c28-44c3-11f1-b2a5-46da4690ad53",
+  preta_combo: "https://pay.copabrasilmania.site/checkout?product=fe386ddb-44c3-11f1-b2a5-46da4690ad53",
+};
 const KIT_COPO_PRICE = 27.98;
 
 const CartModal = ({ isOpen, onClose, items, onRemoveItem }: CartModalProps) => {
