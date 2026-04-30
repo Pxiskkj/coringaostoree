@@ -236,6 +236,7 @@ const Index = () => {
         onClose={() => setIsCartOpen(false)}
         items={cartItems}
         onRemoveItem={handleRemoveItem}
+        selectedColor={selectedColor}
       />
 
       {/* Mobile Menu */}
