@@ -23,6 +23,7 @@ interface CartModalProps {
   onClose: () => void;
   items: CartItem[];
   onRemoveItem: (id: string) => void;
+  selectedColor?: "branca" | "preta";
 }
 
 const CHECKOUT_URLS = {
@@ -33,7 +34,7 @@ const CHECKOUT_URLS = {
 };
 const KIT_COPO_PRICE = 27.98;
 
-const CartModal = ({ isOpen, onClose, items, onRemoveItem }: CartModalProps) => {
+const CartModal = ({ isOpen, onClose, items, onRemoveItem, selectedColor = "branca" }: CartModalProps) => {
   const [kitCopoQuantity, setKitCopoQuantity] = useState(0);
 
   if (!isOpen) return null;
@@ -51,7 +52,8 @@ const CartModal = ({ isOpen, onClose, items, onRemoveItem }: CartModalProps) => 
   };
 
   const handleCheckout = () => {
-    const checkoutUrl = kitCopoQuantity > 0 ? CHECKOUT_URL_COMBO : CHECKOUT_URL_SHIRT;
+    const key = kitCopoQuantity > 0 ? `${selectedColor}_combo` : selectedColor;
+    const checkoutUrl = CHECKOUT_URLS[key as keyof typeof CHECKOUT_URLS];
     window.open(checkoutUrl, "_blank");
   };
 
