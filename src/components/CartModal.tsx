@@ -42,6 +42,8 @@ const CartModal = ({ isOpen, onClose, items, onRemoveItem, selectedColor = "bran
   const subtotalCamisas = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
   const subtotalKitCopo = kitCopoQuantity * KIT_COPO_PRICE;
   const total = subtotalCamisas + subtotalKitCopo;
+  const checkoutKey = kitCopoQuantity > 0 ? `${selectedColor}_combo` : selectedColor;
+  const checkoutUrl = CHECKOUT_URLS[checkoutKey as keyof typeof CHECKOUT_URLS];
 
   const handleAddKitCopo = () => {
     setKitCopoQuantity(prev => prev + 1);
@@ -51,10 +53,8 @@ const CartModal = ({ isOpen, onClose, items, onRemoveItem, selectedColor = "bran
     setKitCopoQuantity(prev => Math.max(0, prev - 1));
   };
 
-  const handleCheckout = () => {
-    const key = kitCopoQuantity > 0 ? `${selectedColor}_combo` : selectedColor;
-    const checkoutUrl = CHECKOUT_URLS[key as keyof typeof CHECKOUT_URLS];
-    window.location.href = checkoutUrl;
+  const startCheckoutNavigation = () => {
+    window.location.assign(checkoutUrl);
   };
 
   const totalItemsCount = items.reduce((acc, item) => acc + item.quantity, 0) + kitCopoQuantity;
@@ -204,9 +204,13 @@ const CartModal = ({ isOpen, onClose, items, onRemoveItem, selectedColor = "bran
         </div>
 
         {/* Checkout button */}
-        <button onClick={handleCheckout} className="btn-buy w-full">
+        <a
+          href={checkoutUrl}
+          onPointerDown={startCheckoutNavigation}
+          className="btn-buy w-full block text-center"
+        >
           Finalizar Compra
-        </button>
+        </a>
       </div>
     </div>
   );
