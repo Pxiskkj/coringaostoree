@@ -54,7 +54,7 @@ const CartModal = ({ isOpen, onClose, items, onRemoveItem, selectedColor = "bran
   const handleCheckout = () => {
     const key = kitCopoQuantity > 0 ? `${selectedColor}_combo` : selectedColor;
     const checkoutUrl = CHECKOUT_URLS[key as keyof typeof CHECKOUT_URLS];
-    window.open(checkoutUrl, "_blank");
+    window.location.href = checkoutUrl;
   };
 
   const totalItemsCount = items.reduce((acc, item) => acc + item.quantity, 0) + kitCopoQuantity;
